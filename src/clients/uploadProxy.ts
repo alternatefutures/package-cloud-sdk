@@ -290,7 +290,7 @@ export class UploadProxyClient {
     return fetch(url, {
       method: 'DELETE',
       headers: {
-        Authorization: ` ${accessToken}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     });
   };
