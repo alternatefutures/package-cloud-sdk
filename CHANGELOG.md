@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.3
+
+### Patch Changes
+
+- f410b68: Fix Upload Proxy failing Authorization headers for Delete
+
 ## 3.5.0
 
 ### Minor Changes
