@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.4
+
+### Patch Changes
+
+- eca887e: Upgrade Utils token dependency to 0.2.3
+
 ## 3.5.3
 
 ### Patch Changes
