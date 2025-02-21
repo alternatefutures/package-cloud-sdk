@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.6.0
+
+### Minor Changes
+
+- 4f74a20: Missing environment variable IS_NODE when targetting browser environments
+
 ## 3.5.4
 
 ### Patch Changes
