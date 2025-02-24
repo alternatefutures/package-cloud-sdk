@@ -28,7 +28,9 @@ const override_env_var_prefix = '';
 
 export const getDefined = (key: keyof typeof defined): string => {
   const value =
-    process?.env?.[`${override_env_var_prefix}${key}`] || defined[key];
+    (typeof process !== 'undefined' &&
+      process?.env?.[`${override_env_var_prefix}${key}`]) ||
+    defined[key];
 
   if (value === undefined || value === null) {
     throw new Error(
