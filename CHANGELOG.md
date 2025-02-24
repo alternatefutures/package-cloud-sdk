@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.6.1
+
+### Patch Changes
+
+- d72f305: Handle undefined process global in browsers
+
 ## 3.6.0
 
 ### Minor Changes
