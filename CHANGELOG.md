@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.6.2
+
+### Patch Changes
+
+- cc836d3: Deprecate IS_NODE env variable
+
 ## 3.6.1
 
 ### Patch Changes
