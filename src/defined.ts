@@ -5,7 +5,6 @@ export type Defined = {
   SDK__IPFS__STORAGE_API_URL?: string;
   SDK__GRAPHQL_API_URL?: string;
   SDK__UPLOAD_PROXY_API_URL?: string;
-  IS_NODE?: string;
 };
 
 // These ENVs will be hardcoded during build. Do not use parseEnv function from @fleek-platform/env-guards
@@ -16,7 +15,6 @@ export const defined: Defined = {
   SDK__IPFS__STORAGE_API_URL: process.env.SDK__IPFS__STORAGE_API_URL as string,
   SDK__GRAPHQL_API_URL: process.env.SDK__GRAPHQL_API_URL as string,
   SDK__UPLOAD_PROXY_API_URL: process.env.SDK__UPLOAD_PROXY_API_URL as string,
-  IS_NODE: process.env.IS_NODE as string,
 };
 
 // The variables are parsed at build time, in order to ensure
