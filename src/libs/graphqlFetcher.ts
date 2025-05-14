@@ -1,4 +1,4 @@
-import { UnauthorizedError, UnknownError } from '@fleek-platform/errors';
+import { UnauthorizedError, UnauthenticatedError, UnknownError } from '@fleek-platform/errors';
 import * as errors from '@fleek-platform/errors';
 import { File } from '@web-std/file';
 import { FormData } from '@web-std/form-data';
@@ -62,6 +62,10 @@ export const graphqlFetcher = async ({
   if (!response.ok) {
     if (response.status === 401) {
       throw new UnauthorizedError({});
+    }
+
+    if (response.status === 403) {
+      throw new UnauthenticatedError();
     }
 
     // TODO: Create a custom error for response not ok

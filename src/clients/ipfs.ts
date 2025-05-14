@@ -1,13 +1,11 @@
 import {
-  AuthorizationError,
   SdkRequiredNodeRuntimeError,
   StorageIpfsUploadFailedError,
 } from '@fleek-platform/errors';
 import { filesFromPaths } from 'files-from-path';
 import type { ReadStream } from 'fs';
-import type { CID, globSource, IPFSHTTPClient } from 'ipfs-http-client';
+import type { CID, globSource } from 'ipfs-http-client';
 
-import { AccessTokenService } from '../libs/AccessTokenService/AccessTokenService';
 import { requireNodeEnv } from '../libs/requireNodeEnv';
 import {
   WriteFilesArgs,
@@ -23,19 +21,19 @@ export type IpfsFile = {
 
 export type IpfsClientOptions = {
   uploadProxyClient: UploadProxyClient;
-  ipfsStorageApiUrl: string;
-  accessTokenService: AccessTokenService;
 };
 
 export type AddAllOptions = {
   basename?: string;
   wrapWithDirectory?: boolean;
   searchParams?: URLSearchParams;
+  siteId?: string;
 };
 
 export type AddFromPathOptions = {
   wrapWithDirectory?: boolean;
   searchParams?: URLSearchParams;
+  siteId?: string;
 };
 
 export type UploadResult = {
@@ -45,9 +43,6 @@ export type UploadResult = {
 };
 export class IpfsClient {
   private uploadProxyClient: UploadProxyClient;
-  private client?: IPFSHTTPClient;
-  private ipfsStorageApiUrl: string;
-  private accessTokenService: AccessTokenService;
 
   constructor(options: IpfsClientOptions) {
     if (!isNode) {
@@ -55,20 +50,7 @@ export class IpfsClient {
     }
 
     this.uploadProxyClient = options.uploadProxyClient;
-    this.ipfsStorageApiUrl = options.ipfsStorageApiUrl;
-    this.accessTokenService = options.accessTokenService;
   }
-  private getClient = async (): Promise<IPFSHTTPClient> => {
-    if (!this.client) {
-      const { create } = await import('ipfs-http-client');
-
-      this.client = create({
-        url: this.ipfsStorageApiUrl,
-      });
-    }
-
-    return this.client;
-  };
 
   private pinToUploadResult = async (
     pin: UploadPinResponse['pin'],
@@ -82,6 +64,7 @@ export class IpfsClient {
       path,
     };
   };
+
   public add = async (file: IpfsFile): Promise<UploadResult> => {
     const nodePath = await import('path');
     const path = file.path ? nodePath.basename(file.path) : '';
@@ -177,7 +160,7 @@ export class IpfsClient {
 
   public addFromPath = async (
     path: string,
-    _options: AddFromPathOptions = {},
+    options: AddFromPathOptions = {},
   ) => {
     requireNodeEnv();
 
@@ -195,9 +178,10 @@ export class IpfsClient {
       const { pin } = await this.uploadProxyClient.uploadContent({
         getStream,
         basename,
+        options: { siteId: options.siteId },
       });
 
-      return [this.pinToUploadResult(pin, basename)];
+      return [await this.pinToUploadResult(pin, basename)];
     }
 
     const filesfromPath = await filesFromPaths([path]);
@@ -207,38 +191,13 @@ export class IpfsClient {
       basename,
     });
 
-    return [this.pinToUploadResult(pin, basename)];
+    return [await this.pinToUploadResult(pin, basename)];
   };
 
   public addSitesToIpfs = async (
     path: string,
     options: AddFromPathOptions = {},
   ) => {
-    requireNodeEnv();
-    const accessToken = await this.accessTokenService.getAccessToken();
-
-    if (!accessToken) {
-      throw new AuthorizationError();
-    }
-
-    try {
-      const globSource = (await import('ipfs-http-client')).globSource;
-      const client = await this.getClient();
-      const iterable = client.addAll(globSource(path, '**/*'), {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-        ...options,
-        wrapWithDirectory: true,
-      });
-      const added: UploadResult[] = [];
-      for await (const file of iterable) {
-        added.push(file);
-      }
-
-      return added;
-    } catch (err) {
-      throw new StorageIpfsUploadFailedError();
-    }
+    return this.addFromPath(path, options);
   };
 }

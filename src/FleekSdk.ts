@@ -129,14 +129,8 @@ export class FleekSdk {
     if (!this.ipfsClient) {
       this.ipfsClient = new IpfsClient({
         uploadProxyClient: this.uploadProxyClient,
-        accessTokenService: this.accessTokenService,
-        ipfsStorageApiUrl: this.ipfsStorageApiUrl,
       });
     }
-
-    console.warn(
-      'Warning: The `ipfs` service in Fleek SDK will be deprecated. Please use `storage` service instead',
-    );
 
     return this.ipfsClient;
   };
