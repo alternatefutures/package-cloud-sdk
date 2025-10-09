@@ -7,7 +7,7 @@ export type Defined = {
   SDK__UPLOAD_PROXY_API_URL?: string;
 };
 
-// These ENVs will be hardcoded during build. Do not use parseEnv function from @fleek-platform/env-guards
+// These ENVs will be hardcoded during build. Do not use parseEnv function from @alternatefutures/env-guards
 // IMPORTANT: Use only public values, no token secrets and stuff like that
 // IMPORTANT: Those values will be visible in public source code pushed to NPM
 export const defined: Defined = {

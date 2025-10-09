@@ -1,4 +1,4 @@
-import { FleekError } from '@fleek-platform/errors';
+import { FleekError } from '@alternatefutures/errors';
 
 export type RetryArgs<T> = {
   fn: () => Promise<T>;

@@ -1,9 +1,9 @@
 import {
   AuthorizationError,
   SdkRequiredNodeRuntimeError,
-} from '@fleek-platform/errors';
-import { Client, createClient } from '@fleek-platform/utils-genql-client';
-import { EnvNotSetError } from '@fleek-platform/errors';
+} from '@alternatefutures/errors';
+import { Client, createClient } from '@alternatefutures/utils-genql-client';
+import { EnvNotSetError } from '@alternatefutures/errors';
 
 import { ApplicationsClient } from './clients/applications';
 import { DomainsClient } from './clients/domains';

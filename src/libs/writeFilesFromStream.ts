@@ -1,7 +1,7 @@
 import {
   SdkRequiredNodeRuntimeError,
   WriteFileFromStreamError,
-} from '@fleek-platform/errors';
+} from '@alternatefutures/errors';
 import type { ReadStream } from 'fs';
 
 import { isNode } from '../utils/node';

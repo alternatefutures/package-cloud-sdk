@@ -2,7 +2,7 @@ import {
   Client,
   IpnsRecord as IpnsRecordWithRelations,
   IpnsRecordGenqlSelection,
-} from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/utils-genql-client';
 
 type IpnsClientOptions = {
   graphqlClient: Client;

@@ -1,5 +1,5 @@
-import { UnauthorizedError, UnauthenticatedError, UnknownError } from '@fleek-platform/errors';
-import * as errors from '@fleek-platform/errors';
+import { UnauthorizedError, UnauthenticatedError, UnknownError } from '@alternatefutures/errors';
+import * as errors from '@alternatefutures/errors';
 import { File } from '@web-std/file';
 import { FormData } from '@web-std/form-data';
 import { traverse } from 'object-traversal';

@@ -3,7 +3,7 @@ import {
   SiteDeploymentNotFoundError,
   SiteNotFoundError,
   SitesNotFoundError,
-} from '@fleek-platform/errors';
+} from '@alternatefutures/errors';
 import {
   Client,
   Deployment as DeploymentWithRelations,
@@ -11,7 +11,7 @@ import {
   Domain as DomainWithRelations,
   Site as SiteWithRelations,
   SiteGenqlSelection,
-} from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/utils-genql-client';
 
 import {
   isDeploymentResponseQuery,

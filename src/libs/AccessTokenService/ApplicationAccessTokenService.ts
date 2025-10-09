@@ -1,5 +1,5 @@
-import { decodeAccessToken } from '@fleek-platform/utils-token';
-import { EnvNotSetError } from '@fleek-platform/errors';
+import { decodeAccessToken } from '@alternatefutures/utils-token';
+import { EnvNotSetError } from '@alternatefutures/errors';
 
 import { DateTime } from 'luxon';
 

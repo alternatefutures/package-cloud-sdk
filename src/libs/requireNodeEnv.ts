@@ -1,4 +1,4 @@
-import { SdkRequiredNodeRuntimeError } from '@fleek-platform/errors';
+import { SdkRequiredNodeRuntimeError } from '@alternatefutures/errors';
 
 import { isNode } from '../utils/node';
 

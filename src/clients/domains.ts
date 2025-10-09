@@ -1,14 +1,14 @@
 import {
   DomainNotFoundError,
   DomainsNotFoundError,
-} from '@fleek-platform/errors';
+} from '@alternatefutures/errors';
 import {
   Client,
   Domain as DomainWithRelations,
   DomainGenqlSelection,
   Zone as ZoneWithRelations,
   ZoneGenqlSelection,
-} from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/utils-genql-client';
 
 import {
   isDomainResponseQuery,

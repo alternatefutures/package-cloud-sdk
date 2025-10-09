@@ -1,7 +1,7 @@
 import {
   SdkRequiredNodeRuntimeError,
   StorageIpfsUploadFailedError,
-} from '@fleek-platform/errors';
+} from '@alternatefutures/errors';
 import { filesFromPaths } from 'files-from-path';
 import type { ReadStream } from 'fs';
 import type { CID, globSource } from 'ipfs-http-client';

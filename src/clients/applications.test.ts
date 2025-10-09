@@ -98,7 +98,7 @@ describe('Applications', () => {
   it('should create application', async () => {
     const response = await sdk.applications().create({
       name: 'test-application',
-      whitelistDomains: ['fleek.xyz'],
+      whitelistDomains: ['alternatefutures.ai'],
     });
 
     // TODO: This mandates returning whitelistDomains

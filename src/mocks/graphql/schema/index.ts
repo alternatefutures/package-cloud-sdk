@@ -6,7 +6,7 @@ export const schemaStr = readFileSync(
     __dirname,
     '../../../../',
     'node_modules',
-    '@fleek-platform/utils-genql-client',
+    '@alternatefutures/utils-genql-client',
     'schema.graphql',
   ),
   'utf-8',

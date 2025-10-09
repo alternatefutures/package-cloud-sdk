@@ -1,4 +1,4 @@
-import { Client } from '@fleek-platform/utils-genql-client';
+import { Client } from '@alternatefutures/utils-genql-client';
 
 type UserClientOptions = {
   graphqlClient: Client;

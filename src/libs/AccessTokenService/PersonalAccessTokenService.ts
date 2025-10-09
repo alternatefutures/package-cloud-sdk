@@ -1,5 +1,5 @@
-import { AuthorizationError } from '@fleek-platform/errors';
-import { Client, createClient } from '@fleek-platform/utils-genql-client';
+import { AuthorizationError } from '@alternatefutures/errors';
+import { Client, createClient } from '@alternatefutures/utils-genql-client';
 
 import { getDefined } from '../../defined';
 import { graphqlFetcher } from '../graphqlFetcher';

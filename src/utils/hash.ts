@@ -1,4 +1,4 @@
-import { SdkRequiredNodeRuntimeError } from '@fleek-platform/errors';
+import { SdkRequiredNodeRuntimeError } from '@alternatefutures/errors';
 import { blake3 } from '@noble/hashes/blake3';
 
 import { isNode } from './node';

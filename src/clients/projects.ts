@@ -2,7 +2,7 @@ import {
   Client,
   Project as ProjectWithRelations,
   ProjectGenqlSelection,
-} from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/utils-genql-client';
 import { File } from '@web-std/file';
 
 type ProjectsClientOptions = {

@@ -1,4 +1,4 @@
-import { AuthorizationError } from '@fleek-platform/errors';
+import { AuthorizationError } from '@alternatefutures/errors';
 
 import { AccessTokenService } from './AccessTokenService';
 

@@ -6,8 +6,8 @@ import {
   UnknownError,
   UploadProxyStoreAsCarError,
   UploadProxyUploadFileError,
-} from '@fleek-platform/errors';
-import { Pin } from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/errors';
+import { Pin } from '@alternatefutures/utils-genql-client';
 import { FormData } from '@web-std/form-data';
 import type { Block } from '@web3-storage/upload-client/car';
 // TODO: The project has `axios`, thus the `isomorphic-fetch`

@@ -2703,7 +2703,7 @@ const fleekFunction = {
     createdAt: DateTime.fromISO('2023-03-24T08:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-24T08:05:13.641Z').toJSDate(),
     currentDeploymentId: 'clgmajsoo000108moef7f1yt0',
-    invokeUrl: 'blue-green-yellow.functions.on-fleek.app',
+    invokeUrl: 'blue-green-yellow.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   electronicCoDeprecated: {
@@ -2714,7 +2714,7 @@ const fleekFunction = {
     createdAt: DateTime.fromISO('2023-03-23T09:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-23T11:05:13.641Z').toJSDate(),
     currentDeploymentId: null,
-    invokeUrl: 'blue-gold-yellow.functions.on-fleek.app',
+    invokeUrl: 'blue-gold-yellow.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   electronicCoBlog: {
@@ -2725,7 +2725,7 @@ const fleekFunction = {
     createdAt: DateTime.fromISO('2023-03-25T08:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-25T08:05:13.641Z').toJSDate(),
     currentDeploymentId: null,
-    invokeUrl: 'white-black-silver.functions.on-fleek.app',
+    invokeUrl: 'white-black-silver.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   electronicCoVideos: {
@@ -2736,7 +2736,7 @@ const fleekFunction = {
     createdAt: DateTime.fromISO('2023-03-25T08:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-25T08:05:13.641Z').toJSDate(),
     currentDeploymentId: null,
-    invokeUrl: 'green-gold-silver.functions.on-fleek.app',
+    invokeUrl: 'green-gold-silver.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   electronicCoLanding: {
@@ -2747,7 +2747,7 @@ const fleekFunction = {
     projectId: auth.project.electronicCo.id,
     createdAt: DateTime.fromISO('2023-08-10T18:34:44.122Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.201Z').toJSDate(),
-    invokeUrl: 'red-green-blue.functions.on-fleek.app',
+    invokeUrl: 'red-green-blue.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   vegetableCoEshop: {
@@ -2758,7 +2758,7 @@ const fleekFunction = {
     createdAt: DateTime.fromISO('2023-03-20T09:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-20T09:05:13.641Z').toJSDate(),
     currentDeploymentId: null,
-    invokeUrl: 'silver-gold-brown.functions.on-fleek.app',
+    invokeUrl: 'silver-gold-brown.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   vegetableCoBlog: {
@@ -2769,7 +2769,7 @@ const fleekFunction = {
     createdAt: DateTime.fromISO('2023-03-21T09:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-21T09:05:13.641Z').toJSDate(),
     currentDeploymentId: null,
-    invokeUrl: 'blue-red-black.functions.on-fleek.app',
+    invokeUrl: 'blue-red-black.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   vegetableCoVideos: {
@@ -2780,7 +2780,7 @@ const fleekFunction = {
     createdAt: DateTime.fromISO('2023-03-23T09:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-23T09:05:13.641Z').toJSDate(),
     currentDeploymentId: null,
-    invokeUrl: 'gold-silver-black.functions.on-fleek.app',
+    invokeUrl: 'gold-silver-black.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   vegetableCoEmployees: {
@@ -2791,7 +2791,7 @@ const fleekFunction = {
     createdAt: DateTime.fromISO('2023-03-23T09:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-23T09:05:13.641Z').toJSDate(),
     currentDeploymentId: null,
-    invokeUrl: 'gold-red-green.functions.on-fleek.app',
+    invokeUrl: 'gold-red-green.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   butcherCoEshop: {
@@ -2802,7 +2802,7 @@ const fleekFunction = {
     projectId: auth.project.butcherCo.id,
     createdAt: DateTime.fromISO('2023-08-10T18:34:44.122Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.201Z').toJSDate(),
-    invokeUrl: 'mealy-flabby-painter.functions.on-fleek.app',
+    invokeUrl: 'mealy-flabby-painter.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   butcherCoBlog: {
@@ -2813,7 +2813,7 @@ const fleekFunction = {
     projectId: auth.project.butcherCo.id,
     createdAt: DateTime.fromISO('2023-08-10T18:34:44.122Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.201Z').toJSDate(),
-    invokeUrl: 'super-smoke-cookie.functions.on-fleek.app',
+    invokeUrl: 'super-smoke-cookie.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   butcherCoVideos: {
@@ -2824,7 +2824,7 @@ const fleekFunction = {
     projectId: auth.project.butcherCo.id,
     createdAt: DateTime.fromISO('2023-08-10T18:34:44.122Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.201Z').toJSDate(),
-    invokeUrl: 'marble-purple-rain.functions.on-fleek.app',
+    invokeUrl: 'marble-purple-rain.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   butcherCoLanding: {
@@ -2835,7 +2835,7 @@ const fleekFunction = {
     projectId: auth.project.butcherCo.id,
     createdAt: DateTime.fromISO('2023-08-10T18:34:44.122Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.201Z').toJSDate(),
-    invokeUrl: 'blank-danger-class.functions.on-fleek.app',
+    invokeUrl: 'blank-danger-class.functions.af-cloud.app',
     status: 'ACTIVE',
   },
   butcherCoEmployees: {
@@ -2846,7 +2846,7 @@ const fleekFunction = {
     projectId: auth.project.butcherCo.id,
     createdAt: DateTime.fromISO('2023-08-10T18:34:44.122Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.201Z').toJSDate(),
-    invokeUrl: 'full-danger-tree.functions.on-fleek.app',
+    invokeUrl: 'full-danger-tree.functions.af-cloud.app',
     status: 'ACTIVE',
   },
 };

@@ -3,7 +3,7 @@ import {
   ApplicationGenqlSelection,
   ApplicationWhitelistDomainGenqlSelection,
   Client,
-} from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/utils-genql-client';
 
 export type Application = Omit<
   ApplicationWithRelations,

@@ -5,7 +5,7 @@ import type {
   Pin,
   PrivateGateway,
   Site,
-} from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/utils-genql-client';
 
 type ResponseWithTypename = {
   __typename?: string;

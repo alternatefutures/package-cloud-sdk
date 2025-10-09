@@ -5,7 +5,7 @@ import {
   FleekFunctionDeploymentGenqlSelection,
   FleekFunctionGenqlSelection,
   FleekFunctionStatus,
-} from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/utils-genql-client';
 type FunctionsClientOptions = {
   graphqlClient: Client;
 };

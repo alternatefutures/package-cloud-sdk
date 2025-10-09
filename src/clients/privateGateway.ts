@@ -1,13 +1,13 @@
 import {
   PrivateGatewayNotFoundError,
   PrivateGatewaysNotFoundError,
-} from '@fleek-platform/errors';
+} from '@alternatefutures/errors';
 import {
   Client,
   PrivateGateway as PrivateGatewayWithRelations,
   PrivateGatewayGenqlSelection,
   Project,
-} from '@fleek-platform/utils-genql-client';
+} from '@alternatefutures/utils-genql-client';
 
 import {
   isPrivateGatewayResponseQuery,
