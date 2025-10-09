@@ -39,21 +39,21 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1
     devDependencies:
+      '@alternatefutures/errors':
+        specifier: ^2.8.0
+        version: 2.8.0
+      '@alternatefutures/utils-genql-client':
+        specifier: ^0.4.0
+        version: 0.4.0
+      '@alternatefutures/utils-token':
+        specifier: ^0.2.3
+        version: 0.2.3
       '@biomejs/biome':
         specifier: ^1.8.3
         version: 1.9.4
       '@changesets/cli':
         specifier: ^2.27.9
         version: 2.29.4
-      '@fleek-platform/errors':
-        specifier: ^2.7.0
-        version: 2.8.0
-      '@fleek-platform/utils-genql-client':
-        specifier: ^0.2.2
-        version: 0.2.2
-      '@fleek-platform/utils-token':
-        specifier: ^0.2.3
-        version: 0.2.3
       '@jspm/core':
         specifier: ^2.0.1
         version: 2.1.0
@@ -125,6 +125,16 @@ importers:
         version: 2.1.1(@types/node@22.15.17)(msw@2.8.2(@types/node@22.15.17)(typescript@5.6.2))
 
 packages:
+
+  '@alternatefutures/errors@2.8.0':
+    resolution: {integrity: sha512-+BBUaO/gUDfIpoRfTHBDUvxMnh/8JB+yxcJ9sEahqjc6ehQOTieOiC2MUA8Fl/dfKT0Ql8Ui8wEmn7GS3tXLiw==}
+
+  '@alternatefutures/utils-genql-client@0.4.0':
+    resolution: {integrity: sha512-UIf91uVpk5a4NgoS4yihTMuMX7tzufcGs2HuZSbUbFXByJ2LtBkZmeP6YUsmeiQH89XKvToJHC+bYjY9cV40nA==}
+
+  '@alternatefutures/utils-token@0.2.3':
+    resolution: {integrity: sha512-Qd8HsnZhPSXOMUdMGW6pXtATBAaCI/8HtkHYZIybcCZbS2EFSCxbFvXAH2LdUTvArQGOtjSPgKMTNN7FPQlAvA==}
+    engines: {node: '>=18.18.2'}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -408,16 +418,6 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
-
-  '@fleek-platform/errors@2.8.0':
-    resolution: {integrity: sha512-WERGfwz94mHOC/Bl2cw8rfLB21JZWvDg6MBCBEvLw2eGcqGQnyIu9pKNTJB1BzmUtlcylr0x9NcraeZp4nnWAg==}
-
-  '@fleek-platform/utils-genql-client@0.2.2':
-    resolution: {integrity: sha512-Pvfhp85I/cJy6rFd0qGWNwFWqcj+pB7DhFAkLwOJhuBjMpqTetOixqQNVfsOKh9Ho33eLphTEdFFGXoQlVVDUg==}
-
-  '@fleek-platform/utils-token@0.2.3':
-    resolution: {integrity: sha512-GJNva0JzFnE4kZBm8/37ZhdlNUMGaoiyzdo45WoxhLhGK0DYoGxdwDGPmMcs7fALoE3EhvB/ZsbUuFiX/owBeg==}
-    engines: {node: '>=18.18.2'}
 
   '@inquirer/confirm@5.1.10':
     resolution: {integrity: sha512-FxbQ9giWxUWKUk2O5XZ6PduVnH2CZ/fmMKMBkH71MHJvWr7WL5AHKevhzF1L5uYWB2P548o1RzVxrNd3dpmk6g==}
@@ -962,6 +962,7 @@ packages:
 
   bun@1.2.13:
     resolution: {integrity: sha512-EhP1MhFbicqtaRSFCbEZdkcFco8Ov47cNJcB9QmKS8U4cojKHfLU+dQR14lCvLYmtBvGgwv/Lp+9SSver2OPzQ==}
+    cpu: [arm64, x64, aarch64]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -2161,6 +2162,19 @@ packages:
 
 snapshots:
 
+  '@alternatefutures/errors@2.8.0':
+    dependencies:
+      nanoid: 3.3.11
+
+  '@alternatefutures/utils-genql-client@0.4.0': {}
+
+  '@alternatefutures/utils-token@0.2.3':
+    dependencies:
+      '@alternatefutures/errors': 2.8.0
+      jose: 4.11.2
+      jscrypto: 1.0.3
+      nanoid: 3.3.11
+
   '@ampproject/remapping@2.3.0':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
@@ -2441,19 +2455,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
-
-  '@fleek-platform/errors@2.8.0':
-    dependencies:
-      nanoid: 3.3.11
-
-  '@fleek-platform/utils-genql-client@0.2.2': {}
-
-  '@fleek-platform/utils-token@0.2.3':
-    dependencies:
-      '@fleek-platform/errors': 2.8.0
-      jose: 4.11.2
-      jscrypto: 1.0.3
-      nanoid: 3.3.11
 
   '@inquirer/confirm@5.1.10(@types/node@22.15.17)':
     dependencies:

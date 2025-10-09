@@ -57,8 +57,8 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@changesets/cli": "^2.27.9",
-    "@alternatefutures/errors": "^2.7.0",
-    "@alternatefutures/utils-genql-client": "^0.2.2",
+    "@alternatefutures/errors": "^2.8.0",
+    "@alternatefutures/utils-genql-client": "^0.4.0",
     "@alternatefutures/utils-token": "^0.2.3",
     "@jspm/core": "^2.0.1",
     "@tsconfig/node16": "^16.1.3",
