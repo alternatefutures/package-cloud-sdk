@@ -1,7 +1,7 @@
 {
   "name": "@alternatefutures/sdk",
   "description": "AlternateFutures Cloud SDK",
-  "version": "3.7.3",
+  "version": "0.1.0",
   "main": "./dist/browser/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -57,9 +57,9 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@changesets/cli": "^2.27.9",
-    "@alternatefutures/errors": "^2.8.0",
-    "@alternatefutures/utils-genql-client": "^0.4.0",
-    "@alternatefutures/utils-token": "^0.2.3",
+    "@alternatefutures/errors": "^0.1.0",
+    "@alternatefutures/utils-genql-client": "^0.1.0",
+    "@alternatefutures/utils-token": "^0.1.0",
     "@jspm/core": "^2.0.1",
     "@tsconfig/node16": "^16.1.3",
     "@types/detect-node": "^2.0.0",
