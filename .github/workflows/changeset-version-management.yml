@@ -121,3 +121,21 @@ jobs:
           fi
 
           echo "✅ Pushed changes to repository!"
+
+      - name: Build package
+        if: ${{ steps.changeset-status.outputs.skip != 'true' }}
+        run: |
+          pnpm build
+          echo "✅ Package built successfully!"
+
+      - name: Setup npm authentication
+        if: ${{ steps.changeset-status.outputs.skip != 'true' }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Publish to npm
+        if: ${{ steps.changeset-status.outputs.skip != 'true' }}
+        run: |
+          npm publish --access public
+          pkgVersion=$(node -p "require('./package.json').version")
+          echo "✅ Published @alternatefutures/sdk@$pkgVersion to npm!"
