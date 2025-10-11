@@ -13,17 +13,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/create-github-app-token@v1
-        id: fleek-platform-bot-token
-        with:
-          app-id: ${{ secrets.FLEEK_PLATFORM_BOT_APP_ID }}
-          private-key: ${{ secrets.FLEEK_PLATFORM_BOT_PRIVATE_KEY }}
-
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ steps.fleek-platform-bot-token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
