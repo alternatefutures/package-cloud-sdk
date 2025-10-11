@@ -1,7 +1,7 @@
 {
   "name": "@alternatefutures/sdk",
   "description": "AlternateFutures Cloud SDK",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "./dist/browser/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
