@@ -1,11 +1,11 @@
 ![](.repo/images/repo/hero-logo.svg)
 
-# ✨ AlternateFutures Cloud SDK
+# ✨ Alternate Futures Cloud SDK
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-blue.svg)](https://conventionalcommits.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-The AlternateFutures Cloud SDK provides an unified interface to help you quickly build applications that leverage our AlternateFutures Services.
+The Alternate Futures Cloud SDK provides an unified interface to help you quickly build applications that leverage our Alternate Futures Services.
 
 It's distributed as an ESM module for Web browsers, or CJS module for NodeJs Server applications. The server version provides a wider range of features, as some features are dependent of Native NodeJs modules.
 
@@ -73,7 +73,7 @@ Next, install the project dependencies:
 pnpm i
 ```
 
-Learn the AlternateFutures SDK basic usage [here](#basic-usage). For extended documentation visit our [documentation site](https://alternatefutures.ai/docs/sdk).
+Learn the Alternate Futures SDK basic usage [here](#basic-usage). For extended documentation visit our [documentation site](https://alternatefutures.ai/docs/sdk).
 
 ### Code Format
 
