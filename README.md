@@ -1,4 +1,4 @@
-![](.repo/images/repo/banner.png?202409201714)
+![](.repo/images/repo/logo.svg)
 
 # ✨ AlternateFutures Cloud SDK
 
@@ -44,7 +44,7 @@ For a quick start, learn the [basic usage](#basic-usage), or alternatively visit
 
 ## Development
 
-For developers looking to contribute to the `@alternatefutures/sdk`, [clone](https://github.com/fleekxyz/sdk) the repository and follow the [contribution guide](#contributing).
+For developers looking to contribute to the `@alternatefutures/sdk`, [clone](https://github.com/alternatefutures/cloud-sdk) the repository and follow the [contribution guide](#contributing).
 
 Once cloned, you'll have to set up the local development environment, e.g. to have access to the source-code, iterate, run tests and much more.
 
@@ -136,8 +136,8 @@ The browser version is meant for applications that should run in a web browser a
 Start by importing the web version from our SDK.
 
 ```ts
-import { FleekSdk } from '@alternatefutures/sdk/browser';
-const sdk = new FleekSdk({
+import { AlternateFuturesSdk } from '@alternatefutures/sdk/browser';
+const sdk = new AlternateFuturesSdk({
   personalAccessToken: '<PERSONAL_ACCESS_TOKEN>',
 });
 ```
@@ -145,10 +145,10 @@ const sdk = new FleekSdk({
 Alternatively, omit the `/browser` path, as it'll default to the web version due to retroactive support. Although, it's recommended to specify the desired target for clarity.
 
 ```ts
-import { FleekSdk }from '@alternatefutures/sdk';
+import { AlternateFuturesSdk } from '@alternatefutures/sdk';
 ```
 
-💡The `<PERSONAL_ACCESS_TOKEN>` can be obtained by utilizing the `@fleek-platform/cli`, learn more about it [here](https://alternatefutures.ai/docs/cli).
+💡The `<PERSONAL_ACCESS_TOKEN>` can be obtained by utilizing the `@alternatefutures/cli`, learn more about it [here](https://alternatefutures.ai/docs/cli).
 
 ### NodeJs
 
@@ -157,30 +157,30 @@ For NodeJs projects import the distribution under the path `@alternatefutures/sd
 Use the following import statement:
 
 ```ts
-import { FleekSdk } from '@alternatefutures/sdk/node';
+import { AlternateFuturesSdk } from '@alternatefutures/sdk/node';
 ```
 
 If you don't specify the `/node` path, it'll import the client version (web), that has a narrower feature set.
 
-Here's an example where we import the `FleekSdk`, the `PersonalAccessTokenService` and get the applications list.
+Here's an example where we import the `AlternateFuturesSdk`, the `PersonalAccessTokenService` and get the applications list.
 
 ```ts
-import { FleekSdk, PersonalAccessTokenService } from '@alternatefutures/sdk/node';
+import { AlternateFuturesSdk, PersonalAccessTokenService } from '@alternatefutures/sdk/node';
 
 const personalAccessToken = '<PERSONAL_ACCESS_TOKEN>';
-const projectId = '<FLEEK_PROJECT_ID>';
+const projectId = '<ALTERNATEFUTURES_PROJECT_ID>';
 
 const accessTokenService = new PersonalAccessTokenService({
     personalAccessToken,
     projectId,
 });
 
-const fleekSdk = new FleekSdk({
+const sdk = new AlternateFuturesSdk({
   accessTokenService,
 });
 
 (async () => {
-  const res = await fleekSdk.applications().list();
+  const res = await sdk.applications().list();
   console.log(res);
 })();
 ```
@@ -189,7 +189,7 @@ const fleekSdk = new FleekSdk({
 
 This section guides you through the process of contributing to our open-source project. From creating a feature branch to submitting a pull request, get started by:
 
-1. Fork the project [here](https://github.com/fleekxyz/cli)
+1. Fork the project [here](https://github.com/alternatefutures/cloud-sdk)
 2. Create your feature branch using our [branching strategy](#branching-strategy), e.g. `git checkout -b feat/my-new-feature`
 3. Run the tests: `pnpm test`
 4. Commit your changes by following our [commit conventions](#conventional-commits), e.g. `git commit -m 'chore: 🤖 my contribution description'`
