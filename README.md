@@ -1,4 +1,4 @@
-![](.repo/images/repo/logo.svg)
+![](.repo/images/repo/hero-logo.svg)
 
 # ✨ AlternateFutures Cloud SDK
 
