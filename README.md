@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".repo/images/repo/hero-logo.svg" alt="AlternateFutures Logo" width="200" />
+  <img src=".repo/images/repo/hero-logo.svg" alt="AlternateFutures Logo" width="400" />
 </p>
 
 # ✨ AlternateFutures Cloud SDK
