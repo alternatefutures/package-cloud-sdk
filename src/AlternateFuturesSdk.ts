@@ -24,14 +24,14 @@ import { isNode } from './utils/node';
 
 type Headers = Record<string, string>;
 
-type FleekSdkOptions = {
+type AlternateFuturesSdkOptions = {
   graphqlServiceApiUrl?: string;
   ipfsStorageApiUrl?: string;
   uploadProxyApiUrl?: string;
   accessTokenService: AccessTokenService;
 };
 
-export class FleekSdk {
+export class AlternateFuturesSdk {
   private accessTokenService: AccessTokenService;
   private graphqlClient: Client;
   private uploadProxyClient: UploadProxyClient;
@@ -59,7 +59,7 @@ export class FleekSdk {
     ipfsStorageApiUrl = getDefined('SDK__IPFS__STORAGE_API_URL'),
     uploadProxyApiUrl = getDefined('SDK__UPLOAD_PROXY_API_URL'),
     accessTokenService,
-  }: FleekSdkOptions) {
+  }: AlternateFuturesSdkOptions) {
     if (!ipfsStorageApiUrl) {
       throw new EnvNotSetError('SDK__IPFS__STORAGE_API_URL');
     }

@@ -8,7 +8,7 @@ import {
 } from '@alternatefutures/errors';
 import {
   Client,
-  FleekFunctionGenqlSelection,
+  AFFunctionGenqlSelection,
   Pin,
   PinGenqlSelection,
   PinsWithAggregationGenqlSelection,
@@ -85,7 +85,7 @@ export class StorageClient {
 
   private static SITE_MAPPED_PROPERTIES: SiteGenqlSelection = { id: true };
 
-  private static FUNCTION_MAPPED_PROPERTIES: FleekFunctionGenqlSelection = {
+  private static FUNCTION_MAPPED_PROPERTIES: AFFunctionGenqlSelection = {
     id: true,
   };
 
@@ -356,7 +356,7 @@ export class StorageClient {
   private checkFunctionInDb = async (name: string) => {
     try {
       await this.graphqlClient.query({
-        fleekFunctionByName: {
+        afFunctionByName: {
           __args: {
             where: { name },
           },

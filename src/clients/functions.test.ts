@@ -1,6 +1,6 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { FleekSdk } from '../FleekSdk';
+import { AlternateFuturesSdk } from '../AlternateFuturesSdk';
 import { mockGraphqlServiceApiUrl as graphqlServiceApiUrl } from '../mocks/graphql/handlers';
 import { server } from '../mocks/graphql/node';
 import state from '../mocks/state';
@@ -19,7 +19,7 @@ vi.mock('@alternatefutures/utils-text', () => ({
 }));
 
 describe('FleekSDK', () => {
-  const sdk = new FleekSdk({
+  const sdk = new AlternateFuturesSdk({
     graphqlServiceApiUrl,
     accessTokenService: {} as any,
   });

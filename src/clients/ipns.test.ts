@@ -1,7 +1,7 @@
 import { describe, expect, it, afterAll, afterEach, beforeAll } from 'vitest';
 import { server } from '../mocks/graphql/node';
 import { mockGraphqlServiceApiUrl as graphqlServiceApiUrl } from '../mocks/graphql/handlers';
-import { FleekSdk } from '../FleekSdk';
+import { AlternateFuturesSdk } from '../AlternateFuturesSdk';
 import state from '../mocks/state';
 
 const TEST_KEY =
@@ -10,7 +10,7 @@ const TEST_INPUT =
   'CjQvaXBmcy9RbVBxckVISlRleDJDUGJxTlVMQ21iU0ZKVDNib0J3QUFmTWI1VWp2WHRLakVlEkB/s3F4iHVMyA9LOFizt5N4PHiI2APD15wsMa1RXGwmugThVpUjTw+5HHwFt16TI/8AKk/1p8+26hylxMxd3wAIGAAiHjIwMjMtMDgtMDVUMDk6NDk6MjguNDk5MDAwMDAwWigNMODyh77rhc0FQkCdgM1u1AAUsdf4pE7/kNYjl438/g6Ja48Tr2evFSRc6YSMgljaKX8PpQC0JDlZqF2jiKdHRUOaxLHArPo9MW0PSosBpWNUVEwbAAs0LrfB+WBlVmFsdWVYNC9pcGZzL1FtUHFyRUhKVGV4MkNQYnFOVUxDbWJTRkpUM2JvQndBQWZNYjVVanZYdEtqRWVoU2VxdWVuY2UNaFZhbGlkaXR5WB4yMDIzLTA4LTA1VDA5OjQ5OjI4LjQ5OTAwMDAwMFpsVmFsaWRpdHlUeXBlAA==';
 
 describe('IPNS', () => {
-  const sdk = new FleekSdk({
+  const sdk = new AlternateFuturesSdk({
     graphqlServiceApiUrl,
     accessTokenService: {} as any,
   });

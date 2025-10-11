@@ -9,7 +9,7 @@ import {
 } from 'vitest';
 import { server } from '../mocks/graphql/node';
 import { mockGraphqlServiceApiUrl as graphqlServiceApiUrl } from '../mocks/graphql/handlers';
-import { FleekSdk } from '../FleekSdk';
+import { AlternateFuturesSdk } from '../AlternateFuturesSdk';
 
 type MockFileNames = 'HelloWorld' | 'Lyrics';
 type MockFiles = Record<
@@ -105,7 +105,7 @@ vi.mock('fs', async () => {
 });
 
 describe('FleekSDK', () => {
-  const sdk = new FleekSdk({
+  const sdk = new AlternateFuturesSdk({
     graphqlServiceApiUrl,
     accessTokenService: {} as any,
   });

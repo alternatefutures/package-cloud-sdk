@@ -1,4 +1,4 @@
-export { FleekSdk } from './FleekSdk';
+export { AlternateFuturesSdk } from './AlternateFuturesSdk';
 export { PersonalAccessTokenService } from './libs/AccessTokenService/PersonalAccessTokenService';
 export { StaticAccessTokenService } from './libs/AccessTokenService/StaticAccessTokenService';
 export { ApplicationAccessTokenService } from './libs/AccessTokenService/ApplicationAccessTokenService';
@@ -20,7 +20,7 @@ export type {
   ApplicationWhitelistDomain,
   Client,
   DomainStatus,
-  FleekFunctionStatus,
+  AFFunctionStatus,
 } from '@alternatefutures/utils-genql-client';
 export type {
   UploadPinResponse,

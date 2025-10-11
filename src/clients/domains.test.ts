@@ -9,7 +9,7 @@ import {
 } from 'vitest';
 import { server } from '../mocks/graphql/node';
 import { mockGraphqlServiceApiUrl as graphqlServiceApiUrl } from '../mocks/graphql/handlers';
-import { FleekSdk } from '../FleekSdk';
+import { AlternateFuturesSdk } from '../AlternateFuturesSdk';
 import state from '../mocks/state';
 
 vi.mock('@aws-sdk/client-sfn', () => ({
@@ -20,7 +20,7 @@ vi.mock('@aws-sdk/client-sfn', () => ({
 }));
 
 describe('Domains', () => {
-  const sdk = new FleekSdk({
+  const sdk = new AlternateFuturesSdk({
     graphqlServiceApiUrl,
     accessTokenService: {} as any,
   });
