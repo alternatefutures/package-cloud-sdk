@@ -1,6 +1,6 @@
 ![](.repo/images/repo/hero-logo.svg)
 
-# ✨ Alternate Futures Cloud SDK
+# ✨ Cloud SDK
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-blue.svg)](https://conventionalcommits.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
