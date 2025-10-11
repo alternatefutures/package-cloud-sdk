@@ -1,6 +1,4 @@
-<p align="center">
-  <img src=".repo/images/repo/hero-logo.svg" alt="AlternateFutures Logo" width="400" />
-</p>
+![](.repo/images/repo/hero-logo.svg)
 
 # ✨ AlternateFutures Cloud SDK
 
