@@ -18,7 +18,13 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const DOCS_REPO = join(__dirname, '../../altfutures-docs/docs/sdk');
+// In CI: cloud-sdk is inside altfutures-docs repo at altfutures-docs/cloud-sdk
+// Locally: cloud-sdk is a sibling of altfutures-docs
+const isCI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
+const DOCS_REPO = isCI
+  ? join(__dirname, '../../docs/sdk')  // In CI: scripts/../.. = altfutures-docs, then docs/sdk
+  : join(__dirname, '../../altfutures-docs/docs/sdk');  // Locally: sibling directory
+
 const SDK_REPO = dirname(__dirname);
 
 console.log('🔧 Generating SDK documentation...\n');
