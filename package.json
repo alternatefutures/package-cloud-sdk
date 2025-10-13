@@ -41,7 +41,7 @@
     "test": "vitest run --dir src",
     "tsc": "tsc --noEmit",
     "watch": "tsc --watch",
-    "docs:generate": "node scripts/generate-docs.js"
+    "docs:generate": "node scripts/generate-docs.mjs"
   },
   "dependencies": {
     "@noble/hashes": "^1.4.0",
