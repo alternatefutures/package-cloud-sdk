@@ -14,7 +14,7 @@ export type { StoragePin } from './clients/storage';
 export type { EnsRecord } from './clients/ens';
 export type { PrivateGateway } from './clients/privateGateway';
 export type { Domain, Zone } from './clients/domains';
-export type { FleekFunction } from './clients/functions';
+export type { AFFunction } from './clients/functions';
 export type {
   ApplicationWhiteLabelDomain,
   ApplicationWhitelistDomain,

@@ -10,32 +10,32 @@ type FunctionsClientOptions = {
   graphqlClient: Client;
 };
 
-export type FleekFunction = Omit<OriginalAFFunction, 'projectId' | 'site'>;
+export type AFFunction = Omit<OriginalAFFunction, 'projectId' | 'site'>;
 
-export type GetFleekFunctionArgs = {
+export type GetAFFunctionArgs = {
   name: string;
 };
-export type CreateFleekFunctionArgs = {
+export type CreateAFFunctionArgs = {
   name: string;
   siteId?: string;
 };
-export type DeleteFleekFunctionArgs = {
+export type DeleteAFFunctionArgs = {
   id: string;
 };
-export type UpdateFleekFunctionArgs = {
+export type UpdateAFFunctionArgs = {
   id: string;
   name?: string;
   slug?: string;
   status?: AFFunctionStatus;
 };
-export type DeployFleekFunctionArgs = {
+export type DeployAFFunctionArgs = {
   functionId: string;
   cid: string;
   sgx?: boolean;
   blake3Hash?: string;
   assetsCid?: string;
 };
-export type ListFleekFunctionArgs = {
+export type ListAFFunctionArgs = {
   functionId: string;
 };
 
@@ -50,7 +50,7 @@ export class FunctionsClient {
     createdAt: true,
   };
 
-  private static FleekFunction_MAPPED_PROPERTIES: AFFunctionGenqlSelection = {
+  private static AFFunction_MAPPED_PROPERTIES: AFFunctionGenqlSelection = {
     id: true,
     name: true,
     slug: true,
@@ -68,7 +68,7 @@ export class FunctionsClient {
     this.graphqlClient = options.graphqlClient;
   }
 
-  public get = async ({ name }: GetFleekFunctionArgs): Promise<FleekFunction> => {
+  public get = async ({ name }: GetAFFunctionArgs): Promise<AFFunction> => {
     const response = await this.graphqlClient.query({
       __name: 'GetAFFunctionByName',
       afFunctionByName: {
@@ -77,20 +77,20 @@ export class FunctionsClient {
             name,
           },
         },
-        ...FunctionsClient.FleekFunction_MAPPED_PROPERTIES,
+        ...FunctionsClient.AFFunction_MAPPED_PROPERTIES,
       },
     });
 
     return response.afFunctionByName;
   };
 
-  public list = async (): Promise<FleekFunction[]> => {
+  public list = async (): Promise<AFFunction[]> => {
     const response = await this.graphqlClient.query({
       __name: 'GetAFFunctions',
       afFunctions: {
         __args: {},
         data: {
-          ...FunctionsClient.FleekFunction_MAPPED_PROPERTIES,
+          ...FunctionsClient.AFFunction_MAPPED_PROPERTIES,
         },
       },
     });
@@ -98,7 +98,7 @@ export class FunctionsClient {
     return response.afFunctions.data;
   };
 
-  public listDeployments = async ({ functionId }: ListFleekFunctionArgs): Promise<AFFunctionDeployment[]> => {
+  public listDeployments = async ({ functionId }: ListAFFunctionArgs): Promise<AFFunctionDeployment[]> => {
     const response = await this.graphqlClient.query({
       afFunctionDeployments: {
         __args: {
@@ -115,7 +115,7 @@ export class FunctionsClient {
     return response.afFunctionDeployments.data;
   };
 
-  public create = async ({ name, siteId }: CreateFleekFunctionArgs) => {
+  public create = async ({ name, siteId }: CreateAFFunctionArgs) => {
     const response = await this.graphqlClient.mutation({
       __name: 'CreateAFFunction',
       createAFFunction: {
@@ -125,14 +125,14 @@ export class FunctionsClient {
             siteId,
           },
         },
-        ...FunctionsClient.FleekFunction_MAPPED_PROPERTIES,
+        ...FunctionsClient.AFFunction_MAPPED_PROPERTIES,
       },
     });
 
     return response.createAFFunction;
   };
 
-  public deploy = async ({ functionId, cid, sgx, blake3Hash, assetsCid }: DeployFleekFunctionArgs): Promise<AFFunctionDeployment> => {
+  public deploy = async ({ functionId, cid, sgx, blake3Hash, assetsCid }: DeployAFFunctionArgs): Promise<AFFunctionDeployment> => {
     const response = await this.graphqlClient.mutation({
       triggerAFFunctionDeployment: {
         __args: {
@@ -149,7 +149,7 @@ export class FunctionsClient {
     return response.triggerAFFunctionDeployment;
   };
 
-  public delete = async ({ id }: DeleteFleekFunctionArgs) => {
+  public delete = async ({ id }: DeleteAFFunctionArgs) => {
     const response = await this.graphqlClient.mutation({
       __name: 'DeleteAFFunction',
       deleteAFFunction: {
@@ -158,14 +158,14 @@ export class FunctionsClient {
             id,
           },
         },
-        ...FunctionsClient.FleekFunction_MAPPED_PROPERTIES,
+        ...FunctionsClient.AFFunction_MAPPED_PROPERTIES,
       },
     });
 
     return response.deleteAFFunction;
   };
 
-  public update = async ({ id, slug, name, status }: UpdateFleekFunctionArgs) => {
+  public update = async ({ id, slug, name, status }: UpdateAFFunctionArgs) => {
     const response = await this.graphqlClient.mutation({
       updateAFFunction: {
         __args: {
@@ -178,7 +178,7 @@ export class FunctionsClient {
             status,
           },
         },
-        ...FunctionsClient.FleekFunction_MAPPED_PROPERTIES,
+        ...FunctionsClient.AFFunction_MAPPED_PROPERTIES,
       },
     });
 

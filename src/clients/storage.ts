@@ -1,5 +1,5 @@
 import {
-  FleekFunctionNotFoundError,
+  AFFunctionNotFoundError,
   PathIsNotADirectoryError,
   PathIsNotAFileError,
   PinNotFoundError,
@@ -364,7 +364,7 @@ export class StorageClient {
         },
       });
     } catch (_err) {
-      throw new FleekFunctionNotFoundError({ function: { name } });
+      throw new AFFunctionNotFoundError({ function: { name } });
     }
   };
 
