@@ -160,4 +160,43 @@ describe('FleekSDK', () => {
       }
     `);
   });
+
+  it('should create function with routes', async () => {
+    const routes = {
+      '/api/users/*': 'https://users-service.com',
+      '/api/products/*': 'https://products-service.com',
+      '/*': 'https://default.com',
+    };
+
+    const response = await sdk.functions().create({
+      name: 'api-gateway',
+      routes,
+    });
+
+    expect(response.name).toBe('api-gateway');
+    expect(response.routes).toEqual(routes);
+  });
+
+  it('should update function routes', async () => {
+    const newRoutes = {
+      '/v2/api/*': 'https://v2-api.com',
+      '/*': 'https://default.com',
+    };
+
+    const response = await sdk.functions().update({
+      id: state.fleekFunctions.fleekFunction.electronicCoShop.id,
+      routes: newRoutes,
+    });
+
+    expect(response.routes).toEqual(newRoutes);
+  });
+
+  it('should clear function routes', async () => {
+    const response = await sdk.functions().update({
+      id: state.fleekFunctions.fleekFunction.electronicCoShop.id,
+      routes: null,
+    });
+
+    expect(response.routes).toBeNull();
+  });
 });

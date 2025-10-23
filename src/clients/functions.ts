@@ -18,6 +18,7 @@ export type GetAFFunctionArgs = {
 export type CreateAFFunctionArgs = {
   name: string;
   siteId?: string;
+  routes?: Record<string, string>;
 };
 export type DeleteAFFunctionArgs = {
   id: string;
@@ -26,6 +27,7 @@ export type UpdateAFFunctionArgs = {
   id: string;
   name?: string;
   slug?: string;
+  routes?: Record<string, string> | null;
   status?: AFFunctionStatus;
 };
 export type DeployAFFunctionArgs = {
@@ -55,6 +57,7 @@ export class FunctionsClient {
     name: true,
     slug: true,
     invokeUrl: true,
+    routes: true,
     projectId: true,
     currentDeploymentId: true,
     currentDeployment: {
@@ -115,7 +118,7 @@ export class FunctionsClient {
     return response.afFunctionDeployments.data;
   };
 
-  public create = async ({ name, siteId }: CreateAFFunctionArgs) => {
+  public create = async ({ name, siteId, routes }: CreateAFFunctionArgs) => {
     const response = await this.graphqlClient.mutation({
       __name: 'CreateAFFunction',
       createAFFunction: {
@@ -123,6 +126,7 @@ export class FunctionsClient {
           data: {
             name,
             siteId,
+            routes,
           },
         },
         ...FunctionsClient.AFFunction_MAPPED_PROPERTIES,
@@ -165,7 +169,7 @@ export class FunctionsClient {
     return response.deleteAFFunction;
   };
 
-  public update = async ({ id, slug, name, status }: UpdateAFFunctionArgs) => {
+  public update = async ({ id, slug, name, routes, status }: UpdateAFFunctionArgs) => {
     const response = await this.graphqlClient.mutation({
       updateAFFunction: {
         __args: {
@@ -175,6 +179,7 @@ export class FunctionsClient {
           data: {
             slug,
             name,
+            routes,
             status,
           },
         },
