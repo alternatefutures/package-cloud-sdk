@@ -3,7 +3,7 @@ import { server } from './mocks/graphql/node';
 import { mockGraphqlServiceApiUrl as graphqlServiceApiUrl } from './mocks/graphql/handlers';
 import { AlternateFuturesSdk } from './AlternateFuturesSdk';
 
-describe('FleekSDK', () => {
+describe('AlternateFuturesSdk', () => {
   const sdk = new AlternateFuturesSdk({
     graphqlServiceApiUrl,
     accessTokenService: {} as any,
