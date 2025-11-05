@@ -6,6 +6,7 @@ import { Client, createClient } from '@alternatefutures/utils-genql-client';
 import { EnvNotSetError } from '@alternatefutures/errors';
 
 import { ApplicationsClient } from './clients/applications';
+import { BillingClient } from './clients/billing';
 import { DomainsClient } from './clients/domains';
 import { EnsClient } from './clients/ens';
 import { FunctionsClient } from './clients/functions';
@@ -44,6 +45,7 @@ export class AlternateFuturesSdk {
   private applicationsClient?: ApplicationsClient;
   private privateGatewayClient?: PrivateGatewayClient;
   private ensClient?: EnsClient;
+  private billingClient?: BillingClient;
 
   private storageClient?: StorageClient;
   private uploadProxyApiUrl: string;
@@ -210,6 +212,16 @@ export class AlternateFuturesSdk {
     }
 
     return this.functionsClient;
+  };
+
+  public billing = (): BillingClient => {
+    if (!this.billingClient) {
+      this.billingClient = new BillingClient({
+        graphqlClient: this.graphqlClient,
+      });
+    }
+
+    return this.billingClient;
   };
 
   private getAuthenticationHeaders = async () => {

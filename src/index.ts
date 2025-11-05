@@ -27,3 +27,4 @@ export type {
   UploadProgress,
   UploadContentOptions,
 } from './clients/uploadProxy';
+export { BillingClient } from './clients/billing';
