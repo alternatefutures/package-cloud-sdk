@@ -222,3 +222,12 @@ docs: 📝 Documentation only changes
 refactor: 💡 A code change that neither fixes a bug or adds a feature
 style: 💄 Markup, white-space, formatting, missing semi-colons...
 ```
+
+## License
+
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+
+## Acknowledgements
+The initial architecture and conceptual foundation of this project were derived from a fork of the Fleek.xyz platform.
+
+As our project's requirements led to significant architectural changes, we have diverged from the original fork. However, we remain grateful to the Fleek team for their pioneering open-source contributions to decentralized application hosting and infrastructure.
