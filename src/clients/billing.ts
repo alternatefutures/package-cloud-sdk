@@ -1,5 +1,95 @@
 import { Client } from '@alternatefutures/utils-genql-client';
 
+// Billing types
+export type Customer = {
+  id: string;
+  email: string;
+  name: string;
+  stripeCustomerId?: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type PaymentMethod = {
+  id: string;
+  type: 'CARD' | 'CRYPTO';
+  cardBrand?: string;
+  cardLast4?: string;
+  cardExpMonth?: number;
+  cardExpYear?: number;
+  walletAddress?: string;
+  blockchain?: string;
+  isDefault: boolean;
+  createdAt: Date;
+};
+
+export type Subscription = {
+  id: string;
+  status: 'ACTIVE' | 'CANCELED' | 'PAST_DUE' | 'UNPAID';
+  plan: 'FREE' | 'STARTER' | 'PRO' | 'ENTERPRISE';
+  basePricePerSeat: number;
+  usageMarkup: number;
+  seats: number;
+  currentPeriodStart: Date;
+  currentPeriodEnd: Date;
+  cancelAt?: Date;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type InvoiceLineItem = {
+  id: string;
+  description: string;
+  quantity: number;
+  unitPrice: number;
+  amount: number;
+};
+
+export type Invoice = {
+  id: string;
+  invoiceNumber: string;
+  status: 'DRAFT' | 'OPEN' | 'PAID' | 'VOID' | 'UNCOLLECTIBLE';
+  subtotal: number;
+  tax: number;
+  total: number;
+  amountPaid: number;
+  amountDue: number;
+  currency: string;
+  periodStart: Date;
+  periodEnd: Date;
+  dueDate?: Date;
+  paidAt?: Date;
+  pdfUrl?: string;
+  lineItems?: InvoiceLineItem[];
+  createdAt: Date;
+};
+
+export type Payment = {
+  id: string;
+  amount: number;
+  currency: string;
+  status: 'PENDING' | 'SUCCEEDED' | 'FAILED';
+  txHash?: string;
+  blockchain?: string;
+  createdAt: Date;
+};
+
+export type UsageMetric = {
+  quantity: number;
+  amount: number;
+};
+
+export type UsageRecord = {
+  storage: UsageMetric;
+  bandwidth: UsageMetric;
+  compute: UsageMetric;
+  requests: UsageMetric;
+};
+
+export type CurrentUsage = UsageRecord & {
+  total: number;
+};
+
 type BillingClientOptions = {
   graphqlClient: Client;
 };

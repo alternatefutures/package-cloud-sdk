@@ -28,3 +28,16 @@ export type {
   UploadContentOptions,
 } from './clients/uploadProxy';
 export { BillingClient } from './clients/billing';
+
+// Billing types
+export type {
+  Customer,
+  PaymentMethod,
+  Subscription,
+  Invoice,
+  InvoiceLineItem,
+  Payment,
+  UsageRecord,
+  CurrentUsage,
+  UsageMetric,
+} from './clients/billing';
