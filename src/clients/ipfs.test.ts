@@ -104,7 +104,7 @@ vi.mock('fs', async () => {
   };
 });
 
-describe('FleekSDK', () => {
+describe('AlternateFuturesSDK', () => {
   const sdk = new AlternateFuturesSdk({
     graphqlServiceApiUrl,
     accessTokenService: {} as any,

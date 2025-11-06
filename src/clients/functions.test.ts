@@ -18,7 +18,7 @@ vi.mock('@alternatefutures/utils-text', () => ({
   generateSlug: vi.fn().mockReturnValue('crooked-bland-jackal'),
 }));
 
-describe('FleekSDK', () => {
+describe('AlternateFuturesSDK', () => {
   const sdk = new AlternateFuturesSdk({
     graphqlServiceApiUrl,
     accessTokenService: {} as any,
@@ -30,7 +30,7 @@ describe('FleekSDK', () => {
 
   it('should get function by its name', async (context) => {
     const response = await sdk.functions().get({
-      name: state.fleekFunctions.fleekFunction.electronicCoEshop.name,
+      name: state.afFunctions.afFunction.electronicCoEshop.name,
     });
 
     expect(response).toMatchInlineSnapshot(`
@@ -143,7 +143,7 @@ describe('FleekSDK', () => {
 
   it('should delete function', async () => {
     const response = await sdk.functions().delete({
-      id: state.fleekFunctions.fleekFunction.electronicCoVideos.id,
+      id: state.afFunctions.afFunction.electronicCoVideos.id,
     });
 
     expect(response).toMatchInlineSnapshot(`
@@ -184,7 +184,7 @@ describe('FleekSDK', () => {
     };
 
     const response = await sdk.functions().update({
-      id: state.fleekFunctions.fleekFunction.electronicCoShop.id,
+      id: state.afFunctions.afFunction.electronicCoShop.id,
       routes: newRoutes,
     });
 
@@ -193,7 +193,7 @@ describe('FleekSDK', () => {
 
   it('should clear function routes', async () => {
     const response = await sdk.functions().update({
-      id: state.fleekFunctions.fleekFunction.electronicCoShop.id,
+      id: state.afFunctions.afFunction.electronicCoShop.id,
       routes: null,
     });
 
