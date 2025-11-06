@@ -7,13 +7,13 @@ import { schemaStr } from '@mocks/graphql/schema';
 const schema = buildSchema(schemaStr);
 
 const queries = [
-  localhost.query('GetFleekFunctionByName', async ({ query, variables }) => {
+  localhost.query('GetAFFunctionByName', async ({ query, variables }) => {
     const res = await executeGraphql({
       schema,
       source: query,
       variableValues: variables,
       rootValue: {
-        fleekFunctionByName: {
+        afFunctionByName: {
           currentDeployment: {
             cid: 'bafybeifyvm5aa2z35jnpehvg3hfflazesjfma53yekmhz7dckqn4buvr7q',
           },
@@ -33,13 +33,13 @@ const queries = [
       errors: res.errors,
     });
   }),
-  localhost.query('GetFleekFunctions', async ({ query, variables }) => {
+  localhost.query('GetAFFunctions', async ({ query, variables }) => {
     const res = await executeGraphql({
       schema,
       source: query,
       variableValues: variables,
       rootValue: {
-        fleekFunctions: {
+        afFunctions: {
           data: [
             {
               currentDeployment: {
@@ -108,13 +108,13 @@ const queries = [
 ];
 
 const mutations = [
-  localhost.mutation('CreateFleekFunction', async ({ query, variables }) => {
+  localhost.mutation('CreateAFFunction', async ({ query, variables }) => {
     const res = await executeGraphql({
       schema,
       source: query,
       variableValues: variables,
       rootValue: {
-        createFleekFunction: {
+        createAFFunction: {
           currentDeployment: null,
           currentDeploymentId: null,
           id: 'clgmg76ch000208mid5o30du0',
@@ -132,13 +132,13 @@ const mutations = [
       errors: res.errors,
     });
   }),
-  localhost.mutation('DeleteFleekFunction', async ({ query, variables }) => {
+  localhost.mutation('DeleteAFFunction', async ({ query, variables }) => {
     const res = await executeGraphql({
       schema,
       source: query,
       variableValues: variables,
       rootValue: {
-        deleteFleekFunction: {
+        deleteAFFunction: {
           currentDeployment: null,
           currentDeploymentId: null,
           id: 'clje32iwx000008js9rjb5uoo',
@@ -147,6 +147,33 @@ const mutations = [
           projectId: 'clgkiwjd8000c08mefyco2eoo',
           slug: 'green-gold-silver',
           status: 'ACTIVE',
+        },
+      },
+    });
+
+    return HttpResponse.json({
+      data: res.data,
+      errors: res.errors,
+    });
+  }),
+  localhost.mutation('UpdateAFFunction', async ({ query, variables }) => {
+    const res = await executeGraphql({
+      schema,
+      source: query,
+      variableValues: variables,
+      rootValue: {
+        updateAFFunction: {
+          currentDeployment: {
+            cid: 'bafybeifyvm5aa2z35jnpehvg3hfflazesjfma53yekmhz7dckqn4buvr7q',
+          },
+          currentDeploymentId: 'clgmajsoo000108moef7f1yt0',
+          id: 'clgma7ilu000008jzdlwhb76a',
+          invokeUrl: 'blue-green-yellow.functions.af-cloud.app',
+          name: 'electronic-co-shop',
+          projectId: 'clgkiwjd8000c08mefyco2eoo',
+          slug: 'blue-green-yellow',
+          status: 'ACTIVE',
+          routes: variables.data?.routes || null,
         },
       },
     });

@@ -184,7 +184,7 @@ describe('AlternateFuturesSDK', () => {
     };
 
     const response = await sdk.functions().update({
-      id: state.afFunctions.afFunction.electronicCoShop.id,
+      id: state.afFunctions.afFunction.electronicCoEshop.id,
       routes: newRoutes,
     });
 
@@ -193,7 +193,7 @@ describe('AlternateFuturesSDK', () => {
 
   it('should clear function routes', async () => {
     const response = await sdk.functions().update({
-      id: state.afFunctions.afFunction.electronicCoShop.id,
+      id: state.afFunctions.afFunction.electronicCoEshop.id,
       routes: null,
     });
 

@@ -2694,7 +2694,7 @@ const ensRecord = {
 
 export const ipns = { ipnsRecord, ensRecord };
 
-const fleekFunction = {
+const afFunction = {
   electronicCoEshop: {
     id: 'clgma7ilu000008jzdlwhb76a',
     name: 'electronic-co-shop',
@@ -2851,14 +2851,14 @@ const fleekFunction = {
   },
 };
 
-const fleekFunctionDeployment = {
+const afFunctionDeployment = {
   electronicCoEshopV1: {
-    id: fleekFunction.electronicCoEshop.currentDeploymentId,
+    id: afFunction.electronicCoEshop.currentDeploymentId,
     cid: storageIpfs.pin.electronicCoBlogIndexV1.cid,
     projectId: auth.project.electronicCo.id,
     createdAt: DateTime.fromISO('2023-03-24T09:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-24T09:05:13.641Z').toJSDate(),
-    fleekFunctionId: fleekFunction.electronicCoBlog.id,
+    afFunctionId: afFunction.electronicCoBlog.id,
     sgx: false,
     blake3Hash: null,
   },
@@ -2868,14 +2868,14 @@ const fleekFunctionDeployment = {
     projectId: auth.project.electronicCo.id,
     createdAt: DateTime.fromISO('2023-03-24T10:05:13.641Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-03-24T10:05:13.641Z').toJSDate(),
-    fleekFunctionId: fleekFunction.electronicCoBlog.id,
+    afFunctionId: afFunction.electronicCoBlog.id,
     sgx: false,
     blake3Hash: null,
   },
   electornicCoBlogV1Failed: {
     id: 'clgmak03f000308modn0j7ltq',
     cid: storageIpfs.pin.electronicCoBlogIndexV1.cid,
-    fleekFunctionId: fleekFunction.electronicCoBlog.id,
+    afFunctionId: afFunction.electronicCoBlog.id,
     sgx: false,
     blake3Hash: null,
     projectId: auth.project.electronicCo.id,
@@ -2884,7 +2884,7 @@ const fleekFunctionDeployment = {
   },
   electronicCoBlogV1: {
     id: 'clgmak57r000408mo9wd65hpf',
-    fleekFunctionId: fleekFunction.electronicCoBlog.id,
+    afFunctionId: afFunction.electronicCoBlog.id,
     sgx: false,
     blake3Hash: null,
     cid: storageIpfs.pin.electronicCoBlogIndexV1.cid,
@@ -2893,50 +2893,50 @@ const fleekFunctionDeployment = {
     projectId: auth.project.electronicCo.id,
   },
   electronicCoLandingV1: {
-    id: fleekFunction.electronicCoLanding.currentDeploymentId,
+    id: afFunction.electronicCoLanding.currentDeploymentId,
     cid: 'bafybeifcesfwifuhcshuobdgw6kod4jzinu4u4v2lzjzdmps3ndaydrsri',
-    fleekFunctionId: fleekFunction.electronicCoLanding.id,
+    afFunctionId: afFunction.electronicCoLanding.id,
     sgx: false,
     blake3Hash: null,
-    projectId: fleekFunction.electronicCoLanding.projectId,
+    projectId: afFunction.electronicCoLanding.projectId,
     createdAt: DateTime.fromISO('2023-08-21T19:00:51.038Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.569Z').toJSDate(),
   },
   butcherCoEshopV1: {
-    id: fleekFunction.butcherCoEshop.currentDeploymentId,
+    id: afFunction.butcherCoEshop.currentDeploymentId,
     cid: 'bafybeifcesfwifuhcshuobdgw6kod4jzinu4u4v2lzjzdmps3ndaydrsri',
-    fleekFunctionId: fleekFunction.butcherCoEshop.id,
+    afFunctionId: afFunction.butcherCoEshop.id,
     sgx: false,
     blake3Hash: null,
-    projectId: fleekFunction.butcherCoEshop.projectId,
+    projectId: afFunction.butcherCoEshop.projectId,
     createdAt: DateTime.fromISO('2023-08-21T19:00:51.038Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.569Z').toJSDate(),
   },
   butcherCoVideosV1: {
-    id: fleekFunction.butcherCoVideos.currentDeploymentId,
+    id: afFunction.butcherCoVideos.currentDeploymentId,
     cid: 'bafybeifcesfwifuhcshuobdgw6kod4jzinu4u4v2lzjzdmps3ndaydrsri',
-    fleekFunctionId: fleekFunction.butcherCoVideos.id,
+    afFunctionId: afFunction.butcherCoVideos.id,
     sgx: false,
     blake3Hash: null,
-    projectId: fleekFunction.butcherCoVideos.projectId,
+    projectId: afFunction.butcherCoVideos.projectId,
     createdAt: DateTime.fromISO('2023-08-21T19:00:51.038Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.569Z').toJSDate(),
   },
   butcherCoLandingV1: {
-    id: fleekFunction.butcherCoLanding.currentDeploymentId,
+    id: afFunction.butcherCoLanding.currentDeploymentId,
     cid: 'bafybeifcesfwifuhcshuobdgw6kod4jzinu4u4v2lzjzdmps3ndaydrsri',
-    fleekFunctionId: fleekFunction.butcherCoLanding.id,
+    afFunctionId: afFunction.butcherCoLanding.id,
     sgx: false,
     blake3Hash: null,
-    projectId: fleekFunction.butcherCoLanding.projectId,
+    projectId: afFunction.butcherCoLanding.projectId,
     createdAt: DateTime.fromISO('2023-08-21T19:00:51.038Z').toJSDate(),
     updatedAt: DateTime.fromISO('2023-08-21T19:04:04.569Z').toJSDate(),
   },
   butcherCoEmployeesV1: {
-    id: fleekFunction.butcherCoEmployees.currentDeploymentId,
+    id: afFunction.butcherCoEmployees.currentDeploymentId,
     cid: 'bafybeifcesfwifuhcshuobdgw6kod4jzinu4u4v2lzjzdmps3ndaydrsri',
-    projectId: fleekFunction.butcherCoEmployees.projectId,
-    fleekFunctionId: fleekFunction.butcherCoEmployees.id,
+    projectId: afFunction.butcherCoEmployees.projectId,
+    afFunctionId: afFunction.butcherCoEmployees.id,
     sgx: false,
     blake3Hash: null,
     createdAt: DateTime.fromISO('2023-08-21T19:00:51.038Z').toJSDate(),
@@ -2944,9 +2944,9 @@ const fleekFunctionDeployment = {
   },
 };
 
-export const fleekFunctions = {
-  fleekFunction,
-  fleekFunctionDeployment,
+export const afFunctions = {
+  afFunction,
+  afFunctionDeployment,
 } as const;
 
 export default {
@@ -2954,6 +2954,6 @@ export default {
   domains,
   sites,
   ipns,
-  fleekFunctions,
+  afFunctions,
   storageIpfs,
 };
