@@ -13,9 +13,6 @@ const define = parseEnvVarsAsKeyVal<Defined>({ defined });
 
 const external = [
   ...Object.keys(pkgJson.dependencies),
-  // TODO: If bundled, utils-genql-client cause
-  // Critical dependency: require function is used in a way in which dependencies cannot be statically extracted
-  // "@alternatefutures/utils-genql-client",
 ];
 
 const requiredBuilds: BuildHandlerArgs[] = [
