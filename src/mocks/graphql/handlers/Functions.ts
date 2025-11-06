@@ -266,6 +266,50 @@ const mutations = [
           errors: res.errors,
         });
       }
+
+      // Handle UpdateProject mutation
+      if (query.includes('updateProject')) {
+        // Check if there's an avatar file in the form data
+        const hasAvatarFile = formData.has('map') && formData.get('map')?.toString().includes('avatar');
+
+        const res = await executeGraphql({
+          schema,
+          source: query,
+          variableValues: variables,
+          rootValue: {
+            updateProject: {
+              avatar: hasAvatarFile ? 'https://secret-asset-url/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVNOWHVIckpIUW03QTNlbjh5YjR6ZHZwWGdDYzFVRVc3Z1JVSFM5dmRnWEYxIiwiZXhwIjoxNzI3Nzk3OTA3fQ.UBUUQ2sk0-b60SbyoAKOXsFSgOJ_uJh_IA85-V9JU2E' : null,
+              backupStorageOnArweave: variables.v2?.backupStorageOnArweave ?? false,
+              backupStorageOnFilecoin: variables.v2?.backupStorageOnFilecoin ?? false,
+              createdAt: '2023-03-23T08:05:13.641Z',
+              id: variables.v1?.id || 'clgkiwjd8000c08mefyco2eoo',
+              name: variables.v2?.name || 'electronicCo',
+            },
+          },
+        });
+
+        return HttpResponse.json({
+          data: res.data,
+          errors: res.errors,
+        });
+      }
+
+      // Handle ResolveIpnsName query
+      if (query.includes('resolveIpnsName')) {
+        const res = await executeGraphql({
+          schema,
+          source: query,
+          variableValues: variables,
+          rootValue: {
+            resolveIpnsName: '/ipfs/QmRG4xcsmoZuXqKuPz3uVBgvo3GZ6k1kLZWhmvzuKtDr9s',
+          },
+        });
+
+        return HttpResponse.json({
+          data: res.data,
+          errors: res.errors,
+        });
+      }
     } catch (error) {
       console.error('Error handling multipart GraphQL request:', error);
     }

@@ -30,9 +30,7 @@ describe('IPNS', () => {
     );
   });
 
-  // TODO: Mocking is failing for w3name
-  // for some reason
-  it.todo('should get resolved IPNS name', async (context) => {
+  it('should get resolved IPNS name', async () => {
     const response = await sdk.ipns().resolveName({ name: TEST_KEY });
 
     expect(response).toMatchInlineSnapshot(

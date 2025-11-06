@@ -34,7 +34,7 @@ describe('Projects', () => {
     );
   });
 
-  it.todo('should update project', async (context) => {
+  it('should update project', async () => {
     const testImage = await readFile(
       join(__dirname, '../../assets/test-image.png'),
     );
@@ -51,7 +51,7 @@ describe('Projects', () => {
 
     expect(response).toMatchInlineSnapshot(`
       Object {
-        "avatar": "https://secret-asset-url/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVNOWHVIckpIUW03QTNlbjh5YjR6ZHZwWGdDYzFVRVc3Z1FVSFM5dmRnWEYxIiwiZXhwIjoxNzI3Nzk3OTA3fQ.UBUUQ2sk0-b60SbyoAKOXsFSgOJ_uJh_IA85-V9JU2E",
+        "avatar": "https://secret-asset-url/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVNOWHVIckpIUW03QTNlbjh5YjR6ZHZwWGdDYzFVRVc3Z1JVSFM5dmRnWEYxIiwiZXhwIjoxNzI3Nzk3OTA3fQ.UBUUQ2sk0-b60SbyoAKOXsFSgOJ_uJh_IA85-V9JU2E",
         "backupStorageOnArweave": true,
         "backupStorageOnFilecoin": true,
         "createdAt": "2023-03-23T08:05:13.641Z",
