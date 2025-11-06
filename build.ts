@@ -15,7 +15,7 @@ const external = [
   ...Object.keys(pkgJson.dependencies),
   // TODO: If bundled, gql-client-utils cause
   // Critical dependency: require function is used in a way in which dependencies cannot be statically extracted
-  // "@fleek-platform/gql-client-utils",
+  // "@af-platform/gql-client-utils",
 ];
 
 const requiredBuilds: BuildHandlerArgs[] = [

@@ -10,7 +10,7 @@ import { handlers as ProjectsHandlers } from './Projects';
 import { handlers as SitesHandlers } from './Sites';
 import { handlers as UserHandlers } from './User';
 
-export const mockGraphqlServiceApiUrl = 'https://fleek.mock.server/graphql';
+export const mockGraphqlServiceApiUrl = 'https://af.mock.server/graphql';
 export const localhost = graphql.link(mockGraphqlServiceApiUrl);
 
 export const handlers = [

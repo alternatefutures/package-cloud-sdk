@@ -130,7 +130,7 @@ describe('AlternateFuturesSDK', () => {
         "currentDeployment": null,
         "currentDeploymentId": null,
         "id": Any<String>,
-        "invokeUrl": "https://crooked-bland-jackal.dev.on-fleek-functions.app",
+        "invokeUrl": "https://crooked-bland-jackal.dev.on-af-functions.app",
         "name": "new-function",
         "projectId": "clgkiwjd8000c08mefyco2eoo",
         "siteId": null,

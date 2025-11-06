@@ -25,7 +25,7 @@ export const mockNodeNative: Plugin = {
           const polyfill = `${name}.js`;
           path = join(dirname(jspmFsLibsPath), '../browser', polyfill);
 
-          // eslint-disable-next-line fleek-custom/no-default-error
+          // eslint-disable-next-line af-custom/no-default-error
           if (!existsSync(path)) {
             throw Error(`Oops! The path ${path} doesn't exist!`);
           }

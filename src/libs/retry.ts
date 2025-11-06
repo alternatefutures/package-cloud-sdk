@@ -1,4 +1,4 @@
-import { FleekError } from '@alternatefutures/errors';
+import { AFError } from '@alternatefutures/errors';
 
 export type RetryArgs<T> = {
   fn: () => Promise<T>;
@@ -20,7 +20,7 @@ export const retry = async <T>({
     try {
       return await fn();
     } catch (error: unknown) {
-      if (error instanceof FleekError) {
+      if (error instanceof AFError) {
         console.warn(
           error.toString(),
           `Attempt ${n} of ${tries}. Retrying in ${intervalMs / 1000}s...`,

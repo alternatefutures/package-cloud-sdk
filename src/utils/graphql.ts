@@ -53,7 +53,7 @@ const requiredByCategory: Required = {
   },
 };
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isDeploymentResponseQuery = (
   response: ResponseWithTypename,
 ): response is Deployment =>
@@ -62,7 +62,7 @@ export const isDeploymentResponseQuery = (
     typename: 'Deployment',
   });
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isPrivateGatewayResponseQuery = (
   response: ResponseWithTypename,
 ): response is PrivateGateway =>
@@ -71,7 +71,7 @@ export const isPrivateGatewayResponseQuery = (
     typename: 'PrivateGateway',
   });
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isPrivateGatewaysResponseQuery = (
   response: ResponseWithTypename[],
 ): response is PrivateGateway[] =>
@@ -82,7 +82,7 @@ export const isPrivateGatewaysResponseQuery = (
     }),
   );
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isDomainResponseQuery = (
   response: ResponseWithTypename,
 ): response is Domain =>
@@ -91,7 +91,7 @@ export const isDomainResponseQuery = (
     typename: 'Domain',
   });
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isDomainsResponseQuery = (
   response: ResponseWithTypename[],
 ): response is Domain[] =>
@@ -102,7 +102,7 @@ export const isDomainsResponseQuery = (
     }),
   );
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isSiteResponseQuery = (
   response: ResponseWithTypename,
 ): response is Site =>
@@ -111,7 +111,7 @@ export const isSiteResponseQuery = (
     typename: 'Site',
   });
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isSitesResponseQuery = (
   response: ResponseWithTypename[],
 ): response is Site[] =>
@@ -122,7 +122,7 @@ export const isSitesResponseQuery = (
     }),
   );
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isPinResponseQuery = (
   response: ResponseWithTypename,
 ): response is Pin =>
@@ -131,7 +131,7 @@ export const isPinResponseQuery = (
     typename: 'Pin',
   });
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isPinsResponseQuery = (
   response: ResponseWithTypename[],
 ): response is Pin[] =>
@@ -142,7 +142,7 @@ export const isPinsResponseQuery = (
     }),
   );
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isFilecoinDealResponseQuery = (
   response: ResponseWithTypename,
 ): response is FilecoinDeal =>
@@ -151,7 +151,7 @@ export const isFilecoinDealResponseQuery = (
     typename: 'FilecoinDeal',
   });
 
-// eslint-disable-next-line fleek-custom/valid-argument-types
+// eslint-disable-next-line af-custom/valid-argument-types
 export const isFilecoinDealsResponseQuery = (
   response: ResponseWithTypename[],
 ): response is FilecoinDeal[] =>
