@@ -269,9 +269,56 @@ describe('AlternateFuturesSDK', () => {
     `);
   });
 
-  it.todo('should add files by path', async () => {
+  it('should add files by path', async () => {
     const response = await sdk.ipfs().addFromPath('./src');
 
-    expect(response).toMatchInlineSnapshot(`{}`);
+    expect(response).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "cid": Object {
+            "code": 112,
+            "hash": Uint8Array [
+              18,
+              32,
+              127,
+              131,
+              177,
+              101,
+              127,
+              241,
+              252,
+              83,
+              185,
+              45,
+              193,
+              129,
+              72,
+              161,
+              214,
+              93,
+              252,
+              45,
+              75,
+              31,
+              163,
+              214,
+              119,
+              40,
+              74,
+              221,
+              210,
+              0,
+              18,
+              109,
+              144,
+              105,
+            ],
+            "version": 0,
+          },
+          "path": "src",
+          "size": 10000,
+        },
+      ]
+    `);
   });
 });
