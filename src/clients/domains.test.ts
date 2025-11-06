@@ -562,4 +562,149 @@ describe('Domains', () => {
     `,
     );
   });
+
+  // ============================================
+  // New Custom Domains Tests
+  // ============================================
+
+  describe('Custom Domains with SSL', () => {
+    it('should create custom domain with TXT verification', async () => {
+      const response = await sdk.domains().createCustomDomain({
+        siteId: 'site-123',
+        hostname: 'example.com',
+        verificationMethod: 'TXT',
+        domainType: 'WEB2',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.hostname).toBe('example.com');
+      expect(response.verified).toBe(false);
+      expect(response.txtVerificationToken).toBeDefined();
+      expect(response.txtVerificationStatus).toBe('PENDING');
+    });
+
+    it('should create custom domain with CNAME verification', async () => {
+      const response = await sdk.domains().createCustomDomain({
+        siteId: 'site-123',
+        hostname: 'www.example.com',
+        verificationMethod: 'CNAME',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.hostname).toBe('www.example.com');
+      expect(response.expectedCname).toBeDefined();
+    });
+
+    it('should create custom domain with A record verification', async () => {
+      const response = await sdk.domains().createCustomDomain({
+        siteId: 'site-123',
+        hostname: 'example.com',
+        verificationMethod: 'A',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.hostname).toBe('example.com');
+      expect(response.expectedARecord).toBeDefined();
+    });
+
+    it('should verify custom domain', async () => {
+      const response = await sdk.domains().verifyCustomDomain({
+        domainId: 'domain-123',
+      });
+
+      expect(response).toBeDefined();
+      // Verification returns boolean
+      expect(typeof response).toBe('boolean');
+    });
+
+    it('should provision SSL certificate', async () => {
+      const response = await sdk.domains().provisionSsl({
+        domainId: 'domain-123',
+        email: 'admin@example.com',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.sslStatus).toBeDefined();
+      expect(['NONE', 'PENDING', 'ACTIVE', 'EXPIRED', 'FAILED']).toContain(
+        response.sslStatus,
+      );
+    });
+
+    it('should set primary domain', async () => {
+      const response = await sdk.domains().setPrimaryDomain({
+        siteId: 'site-123',
+        domainId: 'domain-123',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.id).toBe('site-123');
+    });
+
+    it('should remove custom domain', async () => {
+      const response = await sdk.domains().removeCustomDomain({
+        domainId: 'domain-123',
+      });
+
+      expect(response).toBeDefined();
+      // Returns boolean indicating success
+      expect(typeof response).toBe('boolean');
+    });
+
+    it('should get verification instructions', async () => {
+      const response = await sdk.domains().getVerificationInstructions({
+        domainId: 'domain-123',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.method).toBeDefined();
+      expect(response.recordType).toBeDefined();
+      expect(response.value).toBeDefined();
+      expect(response.instructions).toBeDefined();
+    });
+
+    it('should list domains for site', async () => {
+      const response = await sdk.domains().listDomainsForSite({
+        siteId: 'site-123',
+      });
+
+      expect(response).toBeDefined();
+      expect(Array.isArray(response)).toBe(true);
+    });
+
+    it('should create ArNS domain', async () => {
+      const response = await sdk.domains().createCustomDomain({
+        siteId: 'site-123',
+        hostname: 'my-site.arweave.net',
+        verificationMethod: 'TXT',
+        domainType: 'ARNS',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.domainType).toBe('ARNS');
+    });
+
+    it('should create ENS domain', async () => {
+      const response = await sdk.domains().createCustomDomain({
+        siteId: 'site-123',
+        hostname: 'mysite.eth',
+        verificationMethod: 'TXT',
+        domainType: 'ENS',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.domainType).toBe('ENS');
+    });
+
+    it('should create IPNS domain', async () => {
+      const response = await sdk.domains().createCustomDomain({
+        siteId: 'site-123',
+        hostname: 'my-ipns-site',
+        verificationMethod: 'TXT',
+        domainType: 'IPNS',
+      });
+
+      expect(response).toBeDefined();
+      expect(response.domainType).toBe('IPNS');
+    });
+  });
 });
