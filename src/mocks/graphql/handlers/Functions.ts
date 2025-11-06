@@ -40,6 +40,13 @@ const queries = [
       variableValues: variables,
       rootValue: {
         afFunctions: {
+          currentPage: 1,
+          pageCount: 1,
+          totalCount: 5,
+          isFirstPage: true,
+          isLastPage: true,
+          nextPage: null,
+          previousPage: null,
           data: [
             {
               currentDeployment: {
