@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@alternatefutures/utils-genql-client':
+        specifier: ^0.2.0
+        version: 0.2.0
       '@noble/hashes':
         specifier: ^1.4.0
         version: 1.8.0
@@ -40,9 +43,6 @@ importers:
         version: 1.0.1
     devDependencies:
       '@alternatefutures/errors':
-        specifier: ^0.2.0
-        version: 0.2.0
-      '@alternatefutures/utils-genql-client':
         specifier: ^0.2.0
         version: 0.2.0
       '@alternatefutures/utils-token':

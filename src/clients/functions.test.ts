@@ -43,6 +43,7 @@ describe('AlternateFuturesSDK', () => {
         "invokeUrl": "blue-green-yellow.functions.af-cloud.app",
         "name": "electronic-co-shop",
         "projectId": "clgkiwjd8000c08mefyco2eoo",
+        "routes": null,
         "siteId": null,
         "slug": "blue-green-yellow",
         "status": "ACTIVE",
@@ -64,6 +65,7 @@ describe('AlternateFuturesSDK', () => {
           "invokeUrl": "red-green-blue.functions.af-cloud.app",
           "name": "electronicCoLanding",
           "projectId": "clgkiwjd8000c08mefyco2eoo",
+          "routes": null,
           "siteId": null,
           "slug": "red-green-blue",
           "status": "ACTIVE",
@@ -75,6 +77,7 @@ describe('AlternateFuturesSDK', () => {
           "invokeUrl": "white-black-silver.functions.af-cloud.app",
           "name": "electronic-co-blog",
           "projectId": "clgkiwjd8000c08mefyco2eoo",
+          "routes": null,
           "siteId": null,
           "slug": "white-black-silver",
           "status": "ACTIVE",
@@ -86,6 +89,7 @@ describe('AlternateFuturesSDK', () => {
           "invokeUrl": "green-gold-silver.functions.af-cloud.app",
           "name": "electronic-co-videos",
           "projectId": "clgkiwjd8000c08mefyco2eoo",
+          "routes": null,
           "siteId": null,
           "slug": "green-gold-silver",
           "status": "ACTIVE",
@@ -99,6 +103,7 @@ describe('AlternateFuturesSDK', () => {
           "invokeUrl": "blue-green-yellow.functions.af-cloud.app",
           "name": "electronic-co-shop",
           "projectId": "clgkiwjd8000c08mefyco2eoo",
+          "routes": null,
           "siteId": null,
           "slug": "blue-green-yellow",
           "status": "ACTIVE",
@@ -110,6 +115,7 @@ describe('AlternateFuturesSDK', () => {
           "invokeUrl": "blue-gold-yellow.functions.af-cloud.app",
           "name": "electronic-co-deprecated",
           "projectId": "clgkiwjd8000c08mefyco2eoo",
+          "routes": null,
           "siteId": null,
           "slug": "blue-gold-yellow",
           "status": "ACTIVE",
@@ -124,8 +130,7 @@ describe('AlternateFuturesSDK', () => {
     });
 
     expect(response).toMatchInlineSnapshot(
-      { id: expect.any(String) },
-      `
+      { id: expect.any(String) }, `
       Object {
         "currentDeployment": null,
         "currentDeploymentId": null,
@@ -133,12 +138,12 @@ describe('AlternateFuturesSDK', () => {
         "invokeUrl": "https://crooked-bland-jackal.dev.on-af-functions.app",
         "name": "new-function",
         "projectId": "clgkiwjd8000c08mefyco2eoo",
+        "routes": null,
         "siteId": null,
         "slug": "crooked-bland-jackal",
         "status": "ACTIVE",
       }
-    `
-    );
+    `);
   });
 
   it('should delete function', async () => {
@@ -154,6 +159,7 @@ describe('AlternateFuturesSDK', () => {
         "invokeUrl": "green-gold-silver.functions.af-cloud.app",
         "name": "electronic-co-videos",
         "projectId": "clgkiwjd8000c08mefyco2eoo",
+        "routes": null,
         "siteId": null,
         "slug": "green-gold-silver",
         "status": "ACTIVE",

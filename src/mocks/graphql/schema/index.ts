@@ -7,6 +7,7 @@ export const schemaStr = readFileSync(
     '../../../../',
     'node_modules',
     '@alternatefutures/utils-genql-client',
+    'dist',
     'schema.graphql',
   ),
   'utf-8',

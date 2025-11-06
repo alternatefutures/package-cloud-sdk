@@ -1,7 +1,7 @@
 import { graphql as executeGraphql, buildSchema } from 'graphql';
-import { HttpResponse } from 'msw';
+import { HttpResponse, http } from 'msw';
 
-import { localhost } from '@mocks/graphql/config';
+import { localhost, mockGraphqlServiceApiUrl } from '@mocks/graphql/config';
 import { schemaStr } from '@mocks/graphql/schema';
 
 const schema = buildSchema(schemaStr);
@@ -126,10 +126,11 @@ const mutations = [
           currentDeploymentId: null,
           id: 'clgmg76ch000208mid5o30du0',
           invokeUrl: 'https://crooked-bland-jackal.dev.on-af-functions.app',
-          name: 'new-function',
+          name: variables.v1?.name || 'new-function',
           projectId: 'clgkiwjd8000c08mefyco2eoo',
           slug: 'crooked-bland-jackal',
           status: 'ACTIVE',
+          routes: variables.v1?.routes || null,
         },
       },
     });
@@ -189,6 +190,87 @@ const mutations = [
       data: res.data,
       errors: res.errors,
     });
+  }),
+  // Fallback handler for multipart form-data GraphQL requests (used by update mutations)
+  http.post(mockGraphqlServiceApiUrl, async ({ request }) => {
+    const contentType = request.headers.get('content-type');
+
+    if (!contentType?.includes('multipart/form-data')) {
+      return;
+    }
+
+    try {
+      const formData = await request.formData();
+      const operations = formData.get('operations');
+
+      if (typeof operations !== 'string') {
+        return;
+      }
+
+      const parsed = JSON.parse(operations);
+      const query = parsed.query || '';
+      const variables = parsed.variables || {};
+
+      // Handle CreateAFFunction mutation
+      if (query.includes('createAFFunction')) {
+        const res = await executeGraphql({
+          schema,
+          source: query,
+          variableValues: variables,
+          rootValue: {
+            createAFFunction: {
+              currentDeployment: null,
+              currentDeploymentId: null,
+              id: 'clgmg76ch000208mid5o30du0',
+              invokeUrl: 'https://crooked-bland-jackal.dev.on-af-functions.app',
+              name: variables.v1?.name || 'new-function',
+              projectId: 'clgkiwjd8000c08mefyco2eoo',
+              slug: 'crooked-bland-jackal',
+              status: 'ACTIVE',
+              routes: variables.v1?.routes || null,
+            },
+          },
+        });
+
+        return HttpResponse.json({
+          data: res.data,
+          errors: res.errors,
+        });
+      }
+
+      // Handle UpdateAFFunction mutation
+      if (query.includes('updateAFFunction')) {
+        const res = await executeGraphql({
+          schema,
+          source: query,
+          variableValues: variables,
+          rootValue: {
+            updateAFFunction: {
+              currentDeployment: {
+                cid: 'bafybeifyvm5aa2z35jnpehvg3hfflazesjfma53yekmhz7dckqn4buvr7q',
+              },
+              currentDeploymentId: 'clgmajsoo000108moef7f1yt0',
+              id: 'clgma7ilu000008jzdlwhb76a',
+              invokeUrl: 'blue-green-yellow.functions.af-cloud.app',
+              name: 'electronic-co-shop',
+              projectId: 'clgkiwjd8000c08mefyco2eoo',
+              slug: 'blue-green-yellow',
+              status: 'ACTIVE',
+              routes: variables.v2?.routes !== undefined ? variables.v2.routes : null,
+            },
+          },
+        });
+
+        return HttpResponse.json({
+          data: res.data,
+          errors: res.errors,
+        });
+      }
+    } catch (error) {
+      console.error('Error handling multipart GraphQL request:', error);
+    }
+
+    return;
   }),
 ];
 
