@@ -29,7 +29,25 @@ export type Domain = Pick<
   | 'createdAt'
   | 'dnsConfigs'
   | 'status'
->;
+> & {
+  // New fields for custom domains with SSL
+  verified?: boolean;
+  domainType?: 'WEB2' | 'ARNS' | 'ENS' | 'IPNS';
+  txtVerificationToken?: string;
+  txtVerificationStatus?: 'PENDING' | 'VERIFIED' | 'FAILED';
+  dnsVerifiedAt?: string;
+  sslStatus?: 'NONE' | 'PENDING' | 'ACTIVE' | 'EXPIRED' | 'FAILED';
+  sslIssuedAt?: string;
+  sslExpiresAt?: string;
+  sslAutoRenew?: boolean;
+  arnsName?: string;
+  ensName?: string;
+  ipnsHash?: string;
+  lastDnsCheck?: string;
+  dnsCheckAttempts?: number;
+  expectedCname?: string;
+  expectedARecord?: string;
+};
 
 export type Zone = Pick<
   ZoneWithRelations,
@@ -291,5 +309,177 @@ export class DomainsClient {
     });
 
     return response.deleteZone;
+  };
+
+  // ============================================
+  // New Custom Domains Methods with SSL Support
+  // ============================================
+
+  /**
+   * Create a custom domain with verification method selection
+   * @param siteId - Site ID to attach domain to
+   * @param hostname - Domain hostname (e.g., example.com)
+   * @param verificationMethod - TXT, CNAME, or A record verification
+   * @param domainType - WEB2, ARNS, ENS, or IPNS
+   */
+  public createCustomDomain = async ({
+    siteId,
+    hostname,
+    verificationMethod = 'TXT',
+    domainType = 'WEB2',
+  }: {
+    siteId: string;
+    hostname: string;
+    verificationMethod?: 'TXT' | 'CNAME' | 'A';
+    domainType?: 'WEB2' | 'ARNS' | 'ENS' | 'IPNS';
+  }) => {
+    const response = await this.graphqlClient.mutation({
+      __name: 'CreateCustomDomain',
+      createDomain: {
+        __args: {
+          input: {
+            siteId,
+            hostname,
+            verificationMethod,
+            domainType,
+          },
+        },
+        __scalar: true,
+      },
+    });
+
+    return response.createDomain;
+  };
+
+  /**
+   * Verify domain ownership via DNS
+   * @param domainId - Domain ID to verify
+   */
+  public verifyCustomDomain = async ({ domainId }: { domainId: string }) => {
+    const response = await this.graphqlClient.mutation({
+      __name: 'VerifyCustomDomain',
+      verifyDomain: {
+        __args: {
+          domainId,
+        },
+        __scalar: true,
+      },
+    });
+
+    return response.verifyDomain;
+  };
+
+  /**
+   * Provision SSL certificate for verified domain
+   * @param domainId - Domain ID to provision SSL for
+   * @param email - Email for Let's Encrypt notifications
+   */
+  public provisionSsl = async ({
+    domainId,
+    email,
+  }: {
+    domainId: string;
+    email: string;
+  }) => {
+    const response = await this.graphqlClient.mutation({
+      __name: 'ProvisionSsl',
+      provisionSsl: {
+        __args: {
+          domainId,
+          email,
+        },
+        __scalar: true,
+      },
+    });
+
+    return response.provisionSsl;
+  };
+
+  /**
+   * Set a domain as the primary domain for a site
+   * @param siteId - Site ID
+   * @param domainId - Domain ID to set as primary
+   */
+  public setPrimaryDomain = async ({
+    siteId,
+    domainId,
+  }: {
+    siteId: string;
+    domainId: string;
+  }) => {
+    const response = await this.graphqlClient.mutation({
+      __name: 'SetPrimaryDomain',
+      setPrimaryDomain: {
+        __args: {
+          siteId,
+          domainId,
+        },
+        __scalar: true,
+      },
+    });
+
+    return response.setPrimaryDomain;
+  };
+
+  /**
+   * Remove a custom domain
+   * @param domainId - Domain ID to remove
+   */
+  public removeCustomDomain = async ({ domainId }: { domainId: string }) => {
+    const response = await this.graphqlClient.mutation({
+      __name: 'RemoveCustomDomain',
+      removeDomain: {
+        __args: {
+          domainId,
+        },
+        __scalar: true,
+      },
+    });
+
+    return response.removeDomain;
+  };
+
+  /**
+   * Get verification instructions for a domain
+   * @param domainId - Domain ID to get instructions for
+   */
+  public getVerificationInstructions = async ({
+    domainId,
+  }: {
+    domainId: string;
+  }) => {
+    const response = await this.graphqlClient.query({
+      __name: 'GetVerificationInstructions',
+      domainVerificationInstructions: {
+        __args: {
+          domainId,
+        },
+        __scalar: true,
+      },
+    });
+
+    return response.domainVerificationInstructions;
+  };
+
+  /**
+   * List all domains for a site
+   * @param siteId - Site ID to list domains for
+   */
+  public listDomainsForSite = async ({ siteId }: { siteId: string }) => {
+    const response = await this.graphqlClient.query({
+      __name: 'ListDomainsForSite',
+      site: {
+        __args: {
+          where: {
+            id: siteId,
+          },
+        },
+        domains: {
+          __scalar: true,
+        },
+      },
+    });
+
+    return response.site?.domains || [];
   };
 }
