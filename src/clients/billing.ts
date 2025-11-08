@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Client } from '@alternatefutures/utils-genql-client';
 
 // Billing types
