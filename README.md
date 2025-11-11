@@ -9,7 +9,7 @@ The Alternate Futures Cloud SDK provides an unified interface to help you quickl
 
 It's distributed as an ESM module for Web browsers, or CJS module for NodeJs Server applications. The server version provides a wider range of features, as some features are dependent of Native NodeJs modules.
 
-To learn more about it read our documentation available [here](https://alternatefutures.ai/docs).
+To learn more about it read our documentation available [here](https://docs.alternatefutures.ai/).
 
 ## Overview
 
