@@ -1,0 +1,28 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "../altfutures-docs/docs/sdk/api",
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "hideGenerator": true,
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/test/**",
+    "**/tests/**"
+  ],
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeInternal": true,
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "Classes",
+    "Interfaces",
+    "Type Aliases",
+    "Functions",
+    "*"
+  ],
+  "navigationLinks": {
+    "Home": "https://docs.alternatefutures.com",
+    "GitHub": "https://github.com/alternatefutures/cloud-sdk"
+  }
+}

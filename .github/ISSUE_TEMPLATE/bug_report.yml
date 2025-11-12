@@ -1,0 +1,154 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in the SDK
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the sections below to help us investigate and fix the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: When I call sdk.domains().createCustomDomain(...), I get an error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Install SDK version X.Y.Z
+        2. Run the following code...
+        3. Observe the error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: The domain should be created successfully with verification instructions...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: Instead, I got an error "UnknownError: Unexpected error"
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Sample
+      description: Please provide a minimal code sample that reproduces the issue
+      render: typescript
+      placeholder: |
+        import { AlternateFuturesSdk } from '@alternatefutures/sdk/node';
+
+        const sdk = new AlternateFuturesSdk({
+          personalAccessToken: process.env.AF_TOKEN
+        });
+
+        const domain = await sdk.domains().createCustomDomain({
+          siteId: 'site-123',
+          hostname: 'example.com'
+        });
+    validations:
+      required: false
+
+  - type: input
+    id: sdk-version
+    attributes:
+      label: SDK Version
+      description: Which version of the SDK are you using?
+      placeholder: e.g., 1.2.3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where are you running the SDK?
+      options:
+        - Node.js
+        - Browser
+        - Both
+    validations:
+      required: true
+
+  - type: input
+    id: node-version
+    attributes:
+      label: Node.js Version (if applicable)
+      description: Run `node --version`
+      placeholder: e.g., v18.17.0
+    validations:
+      required: false
+
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser Version (if applicable)
+      description: What browser and version?
+      placeholder: e.g., Chrome 120, Firefox 121, Safari 17
+    validations:
+      required: false
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What OS are you using?
+      placeholder: e.g., macOS 14.1, Ubuntu 22.04, Windows 11
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs
+      description: Please paste any relevant error logs or stack traces
+      render: shell
+      placeholder: |
+        Error: UnknownError
+            at DomainsClient.createCustomDomain (/node_modules/@alternatefutures/sdk/...)
+            ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+      placeholder: This started happening after upgrading from version X to Y...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues to ensure this is not a duplicate
+          required: true
+        - label: I have tested with the latest SDK version
+          required: false
+        - label: I have included a minimal code sample that reproduces the issue
+          required: false
+        - label: I have removed any sensitive information (tokens, credentials) from the report
+          required: true
