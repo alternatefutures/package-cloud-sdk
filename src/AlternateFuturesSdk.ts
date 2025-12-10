@@ -18,7 +18,7 @@ import { SitesClient } from './clients/sites';
 import { StorageClient } from './clients/storage';
 import { UploadProxyClient } from './clients/uploadProxy';
 import { UserClient } from './clients/user';
-import { getDefined } from './defined';
+import { getDefined, type Defined } from './defined';
 import { AccessTokenService } from './libs/AccessTokenService/AccessTokenService';
 import { graphqlFetcher } from './libs/graphqlFetcher';
 import { isNode } from './utils/node';
@@ -29,7 +29,16 @@ type AlternateFuturesSdkOptions = {
   graphqlServiceApiUrl?: string;
   ipfsStorageApiUrl?: string;
   uploadProxyApiUrl?: string;
+  authServiceUrl?: string;
   accessTokenService: AccessTokenService;
+};
+
+const getOptionalDefined = (key: keyof Defined): string | undefined => {
+  try {
+    return getDefined(key);
+  } catch {
+    return undefined;
+  }
 };
 
 export class AlternateFuturesSdk {
@@ -51,6 +60,7 @@ export class AlternateFuturesSdk {
   private uploadProxyApiUrl: string;
 
   private graphqlServiceApiUrl: string;
+  private authServiceUrl?: string;
 
   private ipfsClient?: IpfsClient;
   private ipfsStorageApiUrl: string;
@@ -60,6 +70,7 @@ export class AlternateFuturesSdk {
     graphqlServiceApiUrl = getDefined('SDK__GRAPHQL_API_URL'),
     ipfsStorageApiUrl = getDefined('SDK__IPFS__STORAGE_API_URL'),
     uploadProxyApiUrl = getDefined('SDK__UPLOAD_PROXY_API_URL'),
+    authServiceUrl = getOptionalDefined('SDK__AUTH_SERVICE_URL'),
     accessTokenService,
   }: AlternateFuturesSdkOptions) {
     if (!ipfsStorageApiUrl) {
@@ -91,6 +102,9 @@ export class AlternateFuturesSdk {
     this.graphqlServiceApiUrl = graphqlServiceApiUrl;
     this.ipfsStorageApiUrl = ipfsStorageApiUrl;
     this.uploadProxyApiUrl = uploadProxyApiUrl;
+    if (authServiceUrl) {
+      this.authServiceUrl = authServiceUrl;
+    }
 
     this.uploadProxyClient = new UploadProxyClient({
       uploadProxyApiUrl: this.uploadProxyApiUrl,
@@ -216,8 +230,12 @@ export class AlternateFuturesSdk {
 
   public billing = (): BillingClient => {
     if (!this.billingClient) {
+      if (!this.authServiceUrl) {
+        throw new EnvNotSetError('SDK__AUTH_SERVICE_URL');
+      }
       this.billingClient = new BillingClient({
-        graphqlClient: this.graphqlClient,
+        authServiceUrl: this.authServiceUrl,
+        accessTokenService: this.accessTokenService,
       });
     }
 
