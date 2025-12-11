@@ -77,3 +77,4 @@ jobs:
           echo "**Version:** $(node -p "require('./package.json').version")" >> $GITHUB_STEP_SUMMARY
           echo "**Registry:** https://www.npmjs.com/package/@alternatefutures/sdk" >> $GITHUB_STEP_SUMMARY
           echo "**Provenance:** ✅ Enabled (verifiable build attestation)" >> $GITHUB_STEP_SUMMARY
+
