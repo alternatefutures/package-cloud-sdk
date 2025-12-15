@@ -59,7 +59,8 @@ export class FunctionsClient {
     slug: true,
     invokeUrl: true,
     projectId: true,
-    routes: true,
+    // TODO: Re-enable when @alternatefutures/utils-genql-client v0.5.0 is published
+    // routes: true,
     currentDeploymentId: true,
     currentDeployment: {
       cid: true,
