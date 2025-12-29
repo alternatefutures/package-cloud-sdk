@@ -12,6 +12,7 @@ import { EnsClient } from './clients/ens';
 import { FunctionsClient } from './clients/functions';
 import { IpfsClient } from './clients/ipfs';
 import { IpnsClient } from './clients/ipns';
+import { ObservabilityClient } from './clients/observability';
 import { PrivateGatewayClient } from './clients/privateGateway';
 import { ProjectsClient } from './clients/projects';
 import { SitesClient } from './clients/sites';
@@ -65,6 +66,7 @@ export class AlternateFuturesSdk {
   private ipfsClient?: IpfsClient;
   private ipfsStorageApiUrl: string;
   private functionsClient?: FunctionsClient;
+  private observabilityClient?: ObservabilityClient;
 
   constructor({
     graphqlServiceApiUrl = getDefined('SDK__GRAPHQL_API_URL'),
@@ -242,6 +244,16 @@ export class AlternateFuturesSdk {
     return this.billingClient;
   };
 
+  public observability = (): ObservabilityClient => {
+    if (!this.observabilityClient) {
+      this.observabilityClient = new ObservabilityClient({
+        graphqlClient: this.graphqlClient,
+      });
+    }
+
+    return this.observabilityClient;
+  };
+
   private getAuthenticationHeaders = async () => {
     try {
       const accessToken = await this.accessTokenService.getAccessToken();
@@ -255,7 +267,12 @@ export class AlternateFuturesSdk {
       };
 
       return headers;
-    } catch {
+    } catch (error) {
+      // Log authentication errors in debug mode to help troubleshoot issues
+      // Return empty headers to allow unauthenticated requests where supported
+      if (process.env.DEBUG || process.env.SDK_DEBUG) {
+        console.error('Failed to get authentication headers:', error);
+      }
       return {};
     }
   };
